@@ -48,7 +48,7 @@ export function getLegalText(): {
       number: "1",
       title: "About these Terms",
       paragraphs: [
-        `1.1 These Terms & Conditions ("Terms") apply to the website techiitfly.com and techiitfly.vercel.app (the "Website") and to all services and products provided by ${entity1_1} ("techiitfly", "we", "us").`,
+        `1.1 These Terms & Conditions ("Terms") apply to the website techiitfly.com (the "Website") and to all services and products provided by ${entity1_1} ("techiitfly", "we", "us").`,
         `1.2 By using the Website, booking a consultation, accepting a quote, or paying an advance, you ("Client", "you") agree to these Terms.`,
         `1.3 If a signed quote or project agreement conflicts with these Terms, the signed document applies for that project.`,
       ],

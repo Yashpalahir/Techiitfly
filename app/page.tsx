@@ -41,48 +41,17 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const localBusinessJsonLd: Record<string, unknown> = {
+  const localBusinessJsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: SITE.name,
-    image: `${SITE.siteUrl}/og/home.png`,
-    logo: `${SITE.siteUrl}/favicon.svg`,
-    url: SITE.siteUrl,
-    telephone: SITE.structuredPhone,
-    email: SITE.contactEmail,
-    priceRange: "₹₹",
-    founder: {
-      "@type": "Person",
-      name: "Aditya Chavhan",
-    },
-    areaServed: ["Pune", "Maharashtra", "India"],
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: SITE.openingHours.dayOfWeek,
-        opens: SITE.openingHours.opens,
-        closes: SITE.openingHours.closes,
-      },
-    ],
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Pune",
-      addressRegion: "Maharashtra",
-      addressCountry: "IN",
-    },
+    name: "techiitfly",
+    url: "https://www.techiitfly.com",
+    logo: "https://www.techiitfly.com/favicon.svg",
+    email: "contact@techiitfly.com",
+    telephone: "+91 93739 17738",
+    areaServed: "Pune",
+    sameAs: ["https://www.instagram.com/techiitfly/"],
   };
-
-  if (SITE.socialProfiles && SITE.socialProfiles.length > 0) {
-    localBusinessJsonLd.sameAs = SITE.socialProfiles;
-  }
-
-  if (SITE.googleRating && SITE.googleReviewCount) {
-    localBusinessJsonLd.aggregateRating = {
-      "@type": "AggregateRating",
-      ratingValue: SITE.googleRating,
-      reviewCount: SITE.googleReviewCount,
-    };
-  }
 
   const faqJsonLd = {
     "@context": "https://schema.org",

@@ -25,11 +25,15 @@ export async function generateMetadata({
   if (!project) {
     return { title: "Project Not Found" };
   }
+  const pageTitle =
+    project.slug === "mathsy"
+      ? "Mathsy Learning Platform Case Study"
+      : `${project.title} Website Case Study`;
   const ogImage = `/og/work-${project.slug}.png`;
-  const ogTitle = `${project.title} Case Study | techiitfly`;
+  const ogTitle = `${pageTitle} | techiitfly`;
 
   return {
-    title: `${project.title} — Case Study`,
+    title: pageTitle,
     description: project.summary,
     alternates: {
       canonical: `/work/${project.slug}`,
@@ -39,7 +43,7 @@ export async function generateMetadata({
       description: project.summary,
       path: `/work/${project.slug}`,
       image: ogImage,
-      alt: `${project.title} — Case Study | techiitfly`,
+      alt: `${pageTitle} | techiitfly`,
       type: "article",
     }),
     twitter: buildTwitter({

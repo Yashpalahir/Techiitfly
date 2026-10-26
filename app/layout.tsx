@@ -31,9 +31,6 @@ import { buildOpenGraph, buildTwitter } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.techiitfly.com"),
-  alternates: {
-    canonical: "/",
-  },
   title: {
     default: "techiitfly — Website Development in Pune | Live in 7 Days",
     template: "%s | techiitfly",
@@ -75,20 +72,12 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "techiitfly",
-    url: SITE.siteUrl,
-    logo: `${SITE.siteUrl}/favicon.svg`,
-    email: SITE.contactEmail,
-    telephone: SITE.structuredPhone,
-    contactPoint: [
-      {
-        "@type": "ContactPoint",
-        telephone: SITE.structuredPhone,
-        contactType: "customer service",
-        email: SITE.contactEmail,
-        areaServed: "IN",
-        availableLanguage: ["English", "Hindi"],
-      },
-    ],
+    url: "https://www.techiitfly.com",
+    logo: "https://www.techiitfly.com/favicon.svg",
+    email: "contact@techiitfly.com",
+    telephone: "+91 93739 17738",
+    areaServed: "Pune",
+    sameAs: ["https://www.instagram.com/techiitfly/"],
   };
 
   return (
