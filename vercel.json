@@ -1,4 +1,10 @@
 {
+  "rewrites": [
+    {
+      "source": "/googled8f0674b18aa45e0.html",
+      "destination": "/googled8f0674b18aa45e0"
+    }
+  ],
   "redirects": [
     {
       "source": "/mathsy-for-institutes",
