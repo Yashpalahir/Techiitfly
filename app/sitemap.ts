@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const projectEntries: MetadataRoute.Sitemap = PROJECTS.map((p) => ({
     url: `${baseUrl}/work/${p.slug}`,
-    lastModified: new Date("2026-10-10"),
+    lastModified: new Date(getPageDate(`/work/${p.slug}`).iso),
     changeFrequency: "monthly",
     priority: 0.7,
   }));

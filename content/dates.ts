@@ -14,6 +14,9 @@ export const PAGE_DATES: Record<string, { display: string; iso: string }> = {
   "/privacy": { display: "October 2026", iso: "2026-10-10" },
   "/refund-policy": { display: "October 2026", iso: "2026-10-10" },
   "/delivery-policy": { display: "October 2026", iso: "2026-10-10" },
+  "/work/yogagarhi": { display: "October 2026", iso: "2026-10-23" },
+  "/work/yogicpath": { display: "October 2026", iso: "2026-10-23" },
+  "/work/mathsy": { display: "October 2026", iso: "2026-10-23" },
 };
 
 export function getPageDate(path: string) {
