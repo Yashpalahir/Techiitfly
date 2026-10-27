@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/website-development-pune",
     "/websites-for-yoga-schools",
     "/websites-for-coaching-classes",
+    "/websites-for-dentists",
     "/contact",
     "/terms",
     "/privacy",

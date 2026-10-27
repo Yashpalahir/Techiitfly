@@ -187,6 +187,12 @@ export default function Footer() {
           >
             Coaching Classes &amp; Tutors
           </Link>
+          <Link
+            href="/websites-for-dentists"
+            style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", textDecoration: "none" }}
+          >
+            Dentists &amp; Dental Clinics
+          </Link>
         </div>
 
         {/* Contact Column */}

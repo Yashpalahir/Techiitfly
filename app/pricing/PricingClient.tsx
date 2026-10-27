@@ -1541,6 +1541,59 @@ export default function PricingClient() {
               <FaqItem key={f.q} q={f.q} a={f.a} />
             ))}
           </div>
+
+          {/* Specialized Industry Solutions Callout */}
+          <div
+            style={{
+              maxWidth: "760px",
+              margin: "32px auto 0",
+              padding: "20px 24px",
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
+              borderRadius: "12px",
+              textAlign: "center",
+            }}
+          >
+            <p
+              style={{
+                fontFamily: "var(--font-geist-sans)",
+                fontSize: "0.92rem",
+                color: "var(--muted)",
+                margin: 0,
+                lineHeight: 1.6,
+              }}
+            >
+              Need an industry-specific package? Explore our dedicated websites for{" "}
+              <Link
+                href="/websites-for-dentists"
+                style={{ color: "var(--accent)", textDecoration: "underline", textUnderlineOffset: "3px", fontWeight: 600 }}
+              >
+                Dentists &amp; Dental Clinics
+              </Link>
+              ,{" "}
+              <Link
+                href="/websites-for-coaching-classes"
+                style={{ color: "var(--text)", textDecoration: "underline", textUnderlineOffset: "3px" }}
+              >
+                Coaching Classes
+              </Link>
+              , and{" "}
+              <Link
+                href="/websites-for-yoga-schools"
+                style={{ color: "var(--text)", textDecoration: "underline", textUnderlineOffset: "3px" }}
+              >
+                Yoga Schools
+              </Link>
+              , or our local{" "}
+              <Link
+                href="/website-development-pune"
+                style={{ color: "var(--text)", textDecoration: "underline", textUnderlineOffset: "3px" }}
+              >
+                Website Development in Pune
+              </Link>
+              .
+            </p>
+          </div>
         </section>
 
         {/* ── CTA ──────────────────────────────────────────────────────── */}

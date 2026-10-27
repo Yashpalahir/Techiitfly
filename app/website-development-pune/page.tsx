@@ -412,6 +412,34 @@ export default function PuneWebDevPage() {
           </p>
         </div>
 
+        {/* Industry solutions callout */}
+        <div style={{ textAlign: "center", padding: "20px 20px", background: "var(--surface)", borderTop: "1px solid var(--border)" }}>
+          <p style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.92rem", color: "var(--muted)", margin: 0 }}>
+            Looking for specialized industry solutions? We build websites tailored for{" "}
+            <Link
+              href="/websites-for-dentists"
+              style={{ color: "var(--accent)", textDecoration: "underline", textUnderlineOffset: "3px", fontWeight: 600 }}
+            >
+              Dentists &amp; Dental Clinics in Pune
+            </Link>
+            ,{" "}
+            <Link
+              href="/websites-for-coaching-classes"
+              style={{ color: "var(--text)", textDecoration: "underline", textUnderlineOffset: "3px" }}
+            >
+              Coaching Classes &amp; Tutors
+            </Link>
+            , and{" "}
+            <Link
+              href="/websites-for-yoga-schools"
+              style={{ color: "var(--text)", textDecoration: "underline", textUnderlineOffset: "3px" }}
+            >
+              Yoga Schools &amp; Retreats
+            </Link>
+            .
+          </p>
+        </div>
+
         {/* Final CTA */}
         <FinalCta />
       </main>
