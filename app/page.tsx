@@ -50,7 +50,10 @@ export default function Home() {
     email: "contact@techiitfly.com",
     telephone: "+91 93739 17738",
     areaServed: "Pune",
-    sameAs: ["https://www.instagram.com/techiitfly/"],
+    sameAs: [
+      "https://www.instagram.com/techiitfly/",
+      "https://www.linkedin.com/company/techiitfly",
+    ],
   };
 
   const faqJsonLd = {

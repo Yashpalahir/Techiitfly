@@ -398,6 +398,27 @@ export default function WebsitesForDentistsPage() {
             >
               Patients searching for a dental clinic in Pune are usually in pain or seeking high-value treatments. Here is what converts them into booked appointments:
             </p>
+            <p
+              style={{
+                fontFamily: "var(--font-geist-sans)",
+                fontSize: "0.95rem",
+                color: "var(--muted)",
+                marginTop: "14px",
+              }}
+            >
+              Read our checklist:{" "}
+              <Link
+                href="/blog/dental-clinic-website-checklist"
+                style={{
+                  color: "var(--accent)",
+                  textDecoration: "underline",
+                  textUnderlineOffset: "3px",
+                  fontWeight: 600,
+                }}
+              >
+                12 must-haves for a dental clinic website in 2026 →
+              </Link>
+            </p>
           </div>
 
           {/* Visual Highlight Cards: 4 Visual Pillars with Real Photography */}
@@ -1049,6 +1070,18 @@ export default function WebsitesForDentistsPage() {
           </div>
         </section>
 
+        {/* Dental clinic website checklist callout */}
+        <div style={{ textAlign: "center", padding: "28px 20px", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+          <p style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.96rem", color: "var(--text)", margin: 0 }}>
+            <Link
+              href="/blog/dental-clinic-website-checklist"
+              style={{ color: "var(--accent)", textDecoration: "underline", textUnderlineOffset: "3px", fontWeight: 600 }}
+            >
+              Read our dental clinic website checklist
+            </Link>
+          </p>
+        </div>
+
         {/* 7. Final CTA: Free 15-minute consultation on WhatsApp */}
         <section
           id="contact"
@@ -1167,6 +1200,9 @@ export default function WebsitesForDentistsPage() {
               </Link>
               <Link href="/websites-for-coaching-classes" style={{ color: "var(--text)", textDecoration: "underline", textUnderlineOffset: "3px" }}>
                 Websites for Coaching Classes
+              </Link>
+              <Link href="/blog/dental-clinic-website-checklist" style={{ color: "var(--text)", textDecoration: "underline", textUnderlineOffset: "3px" }}>
+                Dental Clinic Website Checklist
               </Link>
               <Link href="/contact" style={{ color: "var(--accent)", textDecoration: "underline", textUnderlineOffset: "3px", fontWeight: 600 }}>
                 Contact Us
