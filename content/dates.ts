@@ -10,6 +10,7 @@ export const PAGE_DATES: Record<string, { display: string; iso: string }> = {
   "/websites-for-yoga-schools": { display: "October 2026", iso: "2026-10-10" },
   "/websites-for-coaching-classes": { display: "October 2026", iso: "2026-10-10" },
   "/websites-for-dentists": { display: "October 2026", iso: "2026-10-27" },
+  "/blog": { display: "October 2026", iso: "2026-10-28" },
   "/contact": { display: "October 2026", iso: "2026-10-10" },
   "/terms": { display: "October 2026", iso: "2026-10-10" },
   "/privacy": { display: "October 2026", iso: "2026-10-10" },

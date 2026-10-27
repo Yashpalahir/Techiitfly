@@ -111,6 +111,12 @@ export default function Footer() {
           >
             Pricing &amp; Add-ons
           </Link>
+          <Link
+            href="/blog"
+            style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", textDecoration: "none" }}
+          >
+            Blog
+          </Link>
           <a
             href={getConsultUrl()}
             target="_blank"

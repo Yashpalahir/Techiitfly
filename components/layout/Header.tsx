@@ -81,6 +81,7 @@ const NAV_LINKS: NavItem[] = [
   { id: "services", label: "Services", href: "/#services" },
   { id: "work", label: "Work", href: "/#work" },
   { id: "pricing", label: "Pricing", href: "/pricing" },
+  { id: "blog", label: "Blog", href: "/blog" },
   { id: "mathsy-meet", label: "Mathsy Meet", href: "/mathsy-meet" },
   ...(hasFounderBio ? [{ id: "about", label: "About", href: "/#about" }] : []),
   { id: "contact", label: "Contact", href: "/#contact" },
