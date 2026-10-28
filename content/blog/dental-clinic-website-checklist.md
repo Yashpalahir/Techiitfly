@@ -75,6 +75,8 @@ If you can answer yes to most of these, your website is in good shape:
 
 At techiitfly, we build fast, mobile-first websites for clinics, with treatment pages, appointment forms, WhatsApp booking and basic SEO included. You can read more on our [website for dentists in Pune](/websites-for-dentists) page, check [pricing](/pricing) (websites start from ₹12,999), or see how we work on our [website development in Pune](/website-development-pune) page. If you would like to talk through your clinic's needs, [contact us](/contact) and we will be happy to help.
 
+Wondering about budget? Read our [dental clinic website cost guide](/blog/dental-clinic-website-cost-pune).
+
 ## FAQ
 
 **How many pages does a dental clinic website need?**

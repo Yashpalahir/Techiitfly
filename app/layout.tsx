@@ -74,6 +74,7 @@ export default function RootLayout({
     name: "techiitfly",
     url: "https://www.techiitfly.com",
     logo: "https://www.techiitfly.com/favicon.svg",
+    image: "https://www.techiitfly.com/og/home.png",
     email: "contact@techiitfly.com",
     telephone: "+91 93739 17738",
     areaServed: "Pune",

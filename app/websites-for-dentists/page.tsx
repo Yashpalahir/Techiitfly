@@ -1072,12 +1072,19 @@ export default function WebsitesForDentistsPage() {
 
         {/* Dental clinic website checklist callout */}
         <div style={{ textAlign: "center", padding: "28px 20px", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
-          <p style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.96rem", color: "var(--text)", margin: 0 }}>
+          <p style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.96rem", color: "var(--text)", margin: 0, display: "flex", justifyContent: "center", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
             <Link
               href="/blog/dental-clinic-website-checklist"
               style={{ color: "var(--accent)", textDecoration: "underline", textUnderlineOffset: "3px", fontWeight: 600 }}
             >
               Read our dental clinic website checklist
+            </Link>
+            <span style={{ color: "var(--border)" }}>·</span>
+            <Link
+              href="/blog/dental-clinic-website-cost-pune"
+              style={{ color: "var(--accent)", textDecoration: "underline", textUnderlineOffset: "3px", fontWeight: 600 }}
+            >
+              See what a dental clinic website costs in Pune
             </Link>
           </p>
         </div>
@@ -1203,6 +1210,9 @@ export default function WebsitesForDentistsPage() {
               </Link>
               <Link href="/blog/dental-clinic-website-checklist" style={{ color: "var(--text)", textDecoration: "underline", textUnderlineOffset: "3px" }}>
                 Dental Clinic Website Checklist
+              </Link>
+              <Link href="/blog/dental-clinic-website-cost-pune" style={{ color: "var(--text)", textDecoration: "underline", textUnderlineOffset: "3px" }}>
+                Dental Clinic Website Cost Guide
               </Link>
               <Link href="/contact" style={{ color: "var(--accent)", textDecoration: "underline", textUnderlineOffset: "3px", fontWeight: 600 }}>
                 Contact Us
