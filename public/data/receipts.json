@@ -633,6 +633,27 @@
             "cls": "unavailable",
             "inp": "unavailable"
           }
+        },
+        {
+          "timestamp": "2026-11-05T04:54:38.355Z",
+          "mobile": {
+            "performance": "unavailable",
+            "accessibility": "unavailable",
+            "bestPractices": "unavailable",
+            "seo": "unavailable",
+            "lcp": "unavailable",
+            "cls": "unavailable",
+            "inp": "unavailable"
+          },
+          "desktop": {
+            "performance": "unavailable",
+            "accessibility": "unavailable",
+            "bestPractices": "unavailable",
+            "seo": "unavailable",
+            "lcp": "unavailable",
+            "cls": "unavailable",
+            "inp": "unavailable"
+          }
         }
       ]
     },
@@ -1251,6 +1272,27 @@
         },
         {
           "timestamp": "2026-11-04T04:53:01.231Z",
+          "mobile": {
+            "performance": "unavailable",
+            "accessibility": "unavailable",
+            "bestPractices": "unavailable",
+            "seo": "unavailable",
+            "lcp": "unavailable",
+            "cls": "unavailable",
+            "inp": "unavailable"
+          },
+          "desktop": {
+            "performance": "unavailable",
+            "accessibility": "unavailable",
+            "bestPractices": "unavailable",
+            "seo": "unavailable",
+            "lcp": "unavailable",
+            "cls": "unavailable",
+            "inp": "unavailable"
+          }
+        },
+        {
+          "timestamp": "2026-11-05T04:54:38.355Z",
           "mobile": {
             "performance": "unavailable",
             "accessibility": "unavailable",
@@ -1905,9 +1947,30 @@
             "cls": "unavailable",
             "inp": "unavailable"
           }
+        },
+        {
+          "timestamp": "2026-11-05T04:54:38.355Z",
+          "mobile": {
+            "performance": "unavailable",
+            "accessibility": "unavailable",
+            "bestPractices": "unavailable",
+            "seo": "unavailable",
+            "lcp": "unavailable",
+            "cls": "unavailable",
+            "inp": "unavailable"
+          },
+          "desktop": {
+            "performance": "unavailable",
+            "accessibility": "unavailable",
+            "bestPractices": "unavailable",
+            "seo": "unavailable",
+            "lcp": "unavailable",
+            "cls": "unavailable",
+            "inp": "unavailable"
+          }
         }
       ]
     }
   },
-  "lastUpdated": "2026-11-04T04:53:01.231Z"
+  "lastUpdated": "2026-11-05T04:54:38.355Z"
 }
