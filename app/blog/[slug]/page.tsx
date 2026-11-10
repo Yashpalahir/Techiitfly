@@ -234,7 +234,26 @@ export default async function BlogPostPage({
           </nav>
 
           {/* Category Tag Badge */}
-          <div style={{ marginBottom: "16px" }}>
+          <div style={{ marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+            {post.category && (
+              <span
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  fontFamily: "var(--font-geist-mono)",
+                  fontSize: "0.74rem",
+                  fontWeight: 600,
+                  color: "var(--text)",
+                  background: "var(--surface-2)",
+                  border: "1px solid var(--border)",
+                  padding: "4px 12px",
+                  borderRadius: "999px",
+                  letterSpacing: "0.04em",
+                }}
+              >
+                {post.category}
+              </span>
+            )}
             <span
               style={{
                 display: "inline-flex",

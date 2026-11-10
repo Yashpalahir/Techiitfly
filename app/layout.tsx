@@ -25,8 +25,9 @@ const geistMono = Geist_Mono({
   preload: false, // non-critical, lazy
 });
 
-import { SITE } from "@/content/site";
+import { SITE, GA_MEASUREMENT_ID } from "@/content/site";
 import Analytics from "@/components/analytics/Analytics";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { buildOpenGraph, buildTwitter } from "@/lib/metadata";
 
 export const metadata: Metadata = {
@@ -107,6 +108,9 @@ export default function RootLayout({
         />
       </head>
       <body className="grain">
+        {process.env.NODE_ENV === "production" && (
+          <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
+        )}
         <Analytics />
         {children}
       </body>

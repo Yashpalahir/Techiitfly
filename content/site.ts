@@ -49,6 +49,8 @@ export interface SiteConfig {
   };
 }
 
+export const GA_MEASUREMENT_ID = "G-PM3XQN4Z4Z";
+
 export const SITE: SiteConfig = {
   name: "techiitfly",
   brand: "techiitfly",

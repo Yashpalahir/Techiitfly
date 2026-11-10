@@ -1,0 +1,30 @@
+export interface Industry {
+  id: string;
+  name: string;
+  href: string;
+  description: string;
+}
+
+export const INDUSTRIES: Industry[] = [
+  {
+    id: "yoga-wellness",
+    name: "Yoga & Wellness",
+    href: "/websites-for-yoga-schools",
+    description:
+      "Websites for yoga schools, retreat centres, and teachers with schedule showcases and direct WhatsApp lead capture.",
+  },
+  {
+    id: "dentists-clinics",
+    name: "Dentists & Clinics",
+    href: "/websites-for-dentists",
+    description:
+      "Treatment showcases, clinic timings, local SEO, and 1-tap WhatsApp appointment bookings for dental practices.",
+  },
+  {
+    id: "coaching-classes",
+    name: "Coaching Classes",
+    href: "/websites-for-coaching-classes",
+    description:
+      "Batch timetables, faculty profiles, transparent fee structures, and quick admission inquiry forms for institutes.",
+  },
+];

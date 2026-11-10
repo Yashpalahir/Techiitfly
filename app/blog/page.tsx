@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { getAllPosts } from "@/lib/blog";
 import { SITE } from "@/content/site";
 import { buildOpenGraph, buildTwitter } from "@/lib/metadata";
+import BlogClient from "./BlogClient";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -28,52 +28,6 @@ export const metadata: Metadata = {
     image: "/og/home.png",
   }),
 };
-
-function formatDate(dateStr: string) {
-  try {
-    const d = new Date(dateStr);
-    return d.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
-  } catch {
-    return dateStr;
-  }
-}
-
-function getReadTime(content: string) {
-  const words = content.trim().split(/\s+/).length;
-  return Math.max(1, Math.ceil(words / 200));
-}
-
-function getPostTag(slug: string) {
-  if (slug.includes("cost") || slug.includes("pricing")) {
-    return {
-      label: "COST & BUDGET GUIDE",
-      color: "#10b981",
-      bg: "rgba(16, 185, 129, 0.12)",
-      border: "rgba(16, 185, 129, 0.28)",
-      icon: "💰",
-    };
-  }
-  if (slug.includes("checklist")) {
-    return {
-      label: "CLINIC CHECKLIST",
-      color: "var(--accent)",
-      bg: "var(--accent-dim)",
-      border: "rgba(245, 158, 11, 0.3)",
-      icon: "📋",
-    };
-  }
-  return {
-    label: "PRACTICAL GUIDE",
-    color: "var(--accent)",
-    bg: "var(--accent-dim)",
-    border: "rgba(245, 158, 11, 0.3)",
-    icon: "📖",
-  };
-}
 
 export default function BlogIndexPage() {
   const posts = getAllPosts();
@@ -216,7 +170,7 @@ export default function BlogIndexPage() {
           </div>
         </section>
 
-        {/* Posts List */}
+        {/* Blog Posts with Category Filter */}
         <section
           style={{
             position: "relative",
@@ -226,193 +180,7 @@ export default function BlogIndexPage() {
             zIndex: 1,
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-            {posts.map((post) => {
-              const readTime = getReadTime(post.content);
-              const tag = getPostTag(post.slug);
-
-              return (
-                <article
-                  key={post.slug}
-                  className="blog-card"
-                  style={{
-                    position: "relative",
-                    background: "var(--surface)",
-                    border: "1px solid var(--border)",
-                    borderRadius: "18px",
-                    padding: "32px 32px",
-                    transition: "border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease",
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
-                    overflow: "hidden",
-                  }}
-                >
-                  {/* Subtle top accent gradient stripe */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      height: "3px",
-                      background: `linear-gradient(90deg, ${tag.color}, rgba(6,182,212,0.6) 50%, transparent 100%)`,
-                    }}
-                  />
-
-                  {/* Header metadata strip */}
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      gap: "12px",
-                      flexWrap: "wrap",
-                      marginBottom: "14px",
-                    }}
-                  >
-                    <span
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "6px",
-                        fontFamily: "var(--font-geist-mono)",
-                        fontSize: "0.72rem",
-                        fontWeight: 700,
-                        color: tag.color,
-                        background: tag.bg,
-                        border: `1px solid ${tag.border}`,
-                        padding: "3px 10px",
-                        borderRadius: "999px",
-                        letterSpacing: "0.06em",
-                      }}
-                    >
-                      <span>{tag.icon}</span>
-                      <span>{tag.label}</span>
-                    </span>
-
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "8px",
-                        fontFamily: "var(--font-geist-mono)",
-                        fontSize: "0.78rem",
-                        color: "var(--muted)",
-                      }}
-                    >
-                      <time dateTime={post.date}>{formatDate(post.date)}</time>
-                      <span>·</span>
-                      <span>⏱️ {readTime} min read</span>
-                    </div>
-                  </div>
-
-                  {/* Title */}
-                  <h2
-                    style={{
-                      fontFamily: "var(--font-instrument-serif)",
-                      fontSize: "clamp(1.7rem, 3.2vw, 2.2rem)",
-                      fontWeight: 400,
-                      lineHeight: 1.25,
-                      margin: "0 0 12px",
-                    }}
-                  >
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      style={{
-                        color: "var(--text)",
-                        textDecoration: "none",
-                        transition: "color 0.2s ease",
-                      }}
-                    >
-                      {post.title}
-                    </Link>
-                  </h2>
-
-                  {/* Description */}
-                  <p
-                    style={{
-                      fontFamily: "var(--font-geist-sans)",
-                      fontSize: "0.98rem",
-                      lineHeight: 1.65,
-                      color: "var(--muted)",
-                      margin: "0 0 22px",
-                    }}
-                  >
-                    {post.description}
-                  </p>
-
-                  {/* Footer of card */}
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      gap: "14px",
-                      flexWrap: "wrap",
-                      paddingTop: "16px",
-                      borderTop: "1px solid var(--border)",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: "26px",
-                          height: "26px",
-                          borderRadius: "50%",
-                          background: "linear-gradient(135deg, #1D4ED8, #06B6D4)",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          color: "#fff",
-                          fontFamily: "var(--font-geist-mono)",
-                          fontSize: "0.68rem",
-                          fontWeight: 700,
-                        }}
-                      >
-                        tf
-                      </div>
-                      <span
-                        style={{
-                          fontFamily: "var(--font-geist-sans)",
-                          fontSize: "0.86rem",
-                          color: "var(--muted)",
-                        }}
-                      >
-                        By the techiitfly team
-                      </span>
-                    </div>
-
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "6px",
-                        fontFamily: "var(--font-geist-sans)",
-                        fontSize: "0.92rem",
-                        fontWeight: 600,
-                        color: "var(--accent)",
-                        background: "var(--surface-2)",
-                        border: "1px solid var(--border)",
-                        padding: "7px 14px",
-                        borderRadius: "8px",
-                        textDecoration: "none",
-                        transition: "all 0.2s ease",
-                      }}
-                    >
-                      <span>Read article</span>
-                      <span>→</span>
-                    </Link>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
+          <BlogClient posts={posts} />
         </section>
       </main>
       <Footer />

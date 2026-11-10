@@ -32,7 +32,7 @@ export default function Analytics() {
 
         window.dataLayer = window.dataLayer || [];
         function gtag(...args: unknown[]) {
-          window.dataLayer.push(args);
+          window.dataLayer?.push(args);
         }
         (window as unknown as { gtag: typeof gtag }).gtag = gtag;
         gtag("js", new Date());
@@ -93,6 +93,6 @@ export default function Analytics() {
 // Global declaration for TypeScript
 declare global {
   interface Window {
-    dataLayer: any[];
+    dataLayer?: any[];
   }
 }

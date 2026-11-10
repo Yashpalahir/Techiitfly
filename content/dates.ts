@@ -4,6 +4,7 @@ export const SITE_LAST_UPDATED_ISO = "2026-10-10";
 export const PAGE_DATES: Record<string, { display: string; iso: string }> = {
   "/": { display: "October 2026", iso: "2026-10-10" },
   "/pricing": { display: "October 2026", iso: "2026-10-10" },
+  "/industries": { display: "October 2026", iso: "2026-10-28" },
   "/mathsy-meet": { display: "October 2026", iso: "2026-10-10" },
   "/xray": { display: "October 2026", iso: "2026-10-10" },
   "/website-development-pune": { display: "October 2026", iso: "2026-10-10" },

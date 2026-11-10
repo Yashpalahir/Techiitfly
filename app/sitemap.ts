@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/pricing",
+    "/industries",
     "/blog",
     "/mathsy-meet",
     "/xray",
@@ -30,7 +31,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: new Date(getPageDate(route || "/").iso),
     changeFrequency: route === "" || route === "/blog" ? "weekly" : "monthly",
-    priority: route === "" ? 1.0 : route.startsWith("/websites") || route === "/pricing" || route === "/blog" ? 0.8 : 0.6,
+    priority:
+      route === ""
+        ? 1.0
+        : route.startsWith("/websites") || route === "/pricing" || route === "/blog" || route === "/industries"
+        ? 0.8
+        : 0.6,
   }));
 
   const projectEntries: MetadataRoute.Sitemap = PROJECTS.map((p) => ({

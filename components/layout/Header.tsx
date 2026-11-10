@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { SITE, getConsultUrl } from "@/content/site";
 import { hasFounderBio } from "@/content/about";
+import { INDUSTRIES } from "@/content/industries";
 import { trackEvent } from "@/lib/tracking";
 
 // ─── Theme toggle ────────────────────────────────────────────────────────────
@@ -77,8 +78,28 @@ interface NavItem {
   }[];
 }
 
+const INDUSTRY_DROPDOWN_ITEMS = [
+  ...INDUSTRIES.map((ind) => ({
+    label: ind.name,
+    desc: ind.description,
+    href: ind.href,
+  })),
+  {
+    label: "View all industries",
+    desc: "Explore all website solutions by industry",
+    href: "/industries",
+  },
+];
+
 const NAV_LINKS: NavItem[] = [
   { id: "services", label: "Services", href: "/#services" },
+  {
+    id: "industries",
+    label: "Industries",
+    href: "/industries",
+    isDropdown: true,
+    children: INDUSTRY_DROPDOWN_ITEMS,
+  },
   { id: "work", label: "Work", href: "/#work" },
   { id: "pricing", label: "Pricing", href: "/pricing" },
   { id: "blog", label: "Blog", href: "/blog" },
@@ -92,7 +113,9 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
+  const [industriesOpen, setIndustriesOpen] = useState(false);
+  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLLIElement>(null);
 
   // Background blur on scroll
   useEffect(() => {
@@ -100,6 +123,35 @@ export default function Header() {
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
+
+  // Close desktop dropdown on outside click or Escape
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIndustriesOpen(false);
+      }
+    }
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIndustriesOpen(false);
+      }
+    }
+    if (industriesOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("keydown", handleKeyDown);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [industriesOpen]);
+
+  // Reset mobile dropdown when mobile menu closes
+  useEffect(() => {
+    if (!mobileMenuOpen) {
+      setMobileIndustriesOpen(false);
+    }
+  }, [mobileMenuOpen]);
 
   // ── Scroll-spy with IntersectionObserver ──
   useEffect(() => {
@@ -184,12 +236,12 @@ export default function Header() {
       </Link>
 
       {/* Desktop navigation */}
-      <nav aria-label="Main navigation" style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+      <nav aria-label="Main navigation" style={{ display: "flex", alignItems: "center", gap: "20px" }}>
         <ul
           style={{
             listStyle: "none",
             display: "flex",
-            gap: "20px",
+            gap: "16px",
             alignItems: "center",
             padding: 0,
             margin: 0,
@@ -201,20 +253,23 @@ export default function Header() {
               return (
                 <li
                   key={link.id}
+                  ref={dropdownRef}
                   style={{ position: "relative" }}
-                  onMouseEnter={() => setProductsOpen(true)}
-                  onMouseLeave={() => setProductsOpen(false)}
+                  onMouseEnter={() => setIndustriesOpen(true)}
+                  onMouseLeave={() => setIndustriesOpen(false)}
                 >
                   <button
                     type="button"
-                    onClick={() => setProductsOpen((prev) => !prev)}
-                    aria-expanded={productsOpen}
+                    onClick={() => setIndustriesOpen((prev) => !prev)}
+                    aria-expanded={industriesOpen}
+                    aria-haspopup="true"
+                    aria-label="Industries menu"
                     style={{
                       background: "transparent",
                       border: "none",
                       fontFamily: "var(--font-geist-sans)",
                       fontSize: "0.85rem",
-                      color: productsOpen ? "var(--accent)" : "var(--muted)",
+                      color: industriesOpen ? "var(--accent)" : "var(--muted)",
                       fontWeight: 500,
                       cursor: "pointer",
                       padding: "4px 2px",
@@ -224,15 +279,23 @@ export default function Header() {
                     }}
                   >
                     <span>{link.label}</span>
-                    <span style={{ fontSize: "0.65rem", transition: "transform 0.2s ease", transform: productsOpen ? "rotate(180deg)" : "rotate(0)" }}>
+                    <span
+                      style={{
+                        fontSize: "0.65rem",
+                        transition: "transform 0.2s ease",
+                        transform: industriesOpen ? "rotate(180deg)" : "rotate(0)",
+                      }}
+                    >
                       ▼
                     </span>
                   </button>
 
                   {/* Dropdown Menu */}
                   <AnimatePresence>
-                    {productsOpen && (
+                    {industriesOpen && (
                       <motion.div
+                        role="menu"
+                        aria-label="Industries"
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 8 }}
@@ -242,47 +305,86 @@ export default function Header() {
                           top: "100%",
                           left: "-20px",
                           width: "300px",
-                          background: "#14110E",
+                          background: "var(--surface)",
                           border: "1px solid var(--border)",
                           borderRadius: "10px",
-                          padding: "10px",
-                          boxShadow: "0 18px 40px rgba(0,0,0,0.75)",
+                          padding: "8px",
+                          boxShadow: "0 18px 40px rgba(0,0,0,0.5)",
                           display: "flex",
                           flexDirection: "column",
-                          gap: "6px",
+                          gap: "4px",
                           zIndex: 110,
                         }}
                       >
-                        {link.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            onClick={() => setProductsOpen(false)}
-                            style={{
-                              padding: "10px 12px",
-                              borderRadius: "6px",
-                              textDecoration: "none",
-                              background: "transparent",
-                              transition: "background 0.15s ease",
-                              display: "flex",
-                              flexDirection: "column",
-                              gap: "2px",
-                            }}
-                            onMouseEnter={(e) => {
-                              e.currentTarget.style.background = "rgba(255,255,255,0.05)";
-                            }}
-                            onMouseLeave={(e) => {
-                              e.currentTarget.style.background = "transparent";
-                            }}
-                          >
-                            <span style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", fontWeight: 600, color: "var(--text)" }}>
-                              {child.label}
-                            </span>
-                            <span style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.75rem", color: "var(--muted)" }}>
-                              {child.desc}
-                            </span>
-                          </Link>
-                        ))}
+                        {link.children.map((child, idx) => {
+                          const isLast = idx === link.children!.length - 1;
+                          return (
+                            <div key={child.href} role="none">
+                              {isLast && (
+                                <div
+                                  style={{
+                                    height: "1px",
+                                    background: "var(--border)",
+                                    margin: "4px 8px 6px",
+                                  }}
+                                />
+                              )}
+                              <Link
+                                href={child.href}
+                                role="menuitem"
+                                onClick={() => setIndustriesOpen(false)}
+                                style={{
+                                  padding: "8px 12px",
+                                  borderRadius: "6px",
+                                  textDecoration: "none",
+                                  background: "transparent",
+                                  transition: "background 0.15s ease",
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  gap: "2px",
+                                }}
+                                onMouseEnter={(e) => {
+                                  e.currentTarget.style.background = "var(--surface-2)";
+                                }}
+                                onMouseLeave={(e) => {
+                                  e.currentTarget.style.background = "transparent";
+                                }}
+                                onFocus={(e) => {
+                                  e.currentTarget.style.background = "var(--surface-2)";
+                                }}
+                                onBlur={(e) => {
+                                  e.currentTarget.style.background = "transparent";
+                                }}
+                              >
+                                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                                  <span
+                                    style={{
+                                      fontFamily: "var(--font-geist-sans)",
+                                      fontSize: "0.88rem",
+                                      fontWeight: 600,
+                                      color: isLast ? "var(--accent)" : "var(--text)",
+                                    }}
+                                  >
+                                    {child.label}
+                                  </span>
+                                  {isLast && (
+                                    <span style={{ color: "var(--accent)", fontSize: "0.85rem" }}>→</span>
+                                  )}
+                                </div>
+                                <span
+                                  style={{
+                                    fontFamily: "var(--font-geist-sans)",
+                                    fontSize: "0.75rem",
+                                    color: "var(--muted)",
+                                    lineHeight: 1.3,
+                                  }}
+                                >
+                                  {child.desc}
+                                </span>
+                              </Link>
+                            </div>
+                          );
+                        })}
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -403,35 +505,87 @@ export default function Header() {
             {NAV_LINKS.map((link) => {
               if (link.isDropdown && link.children) {
                 return (
-                  <div key={link.id} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                    <span
+                  <div key={link.id} style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                    <button
+                      type="button"
+                      onClick={() => setMobileIndustriesOpen((prev) => !prev)}
+                      aria-expanded={mobileIndustriesOpen}
+                      aria-haspopup="true"
                       style={{
-                        fontFamily: "var(--font-geist-mono)",
-                        fontSize: "0.72rem",
-                        color: "var(--accent)",
-                        letterSpacing: "0.08em",
-                        textTransform: "uppercase",
+                        background: "transparent",
+                        border: "none",
+                        padding: "6px 0",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "1rem",
+                        color: mobileIndustriesOpen ? "var(--accent)" : "var(--text)",
+                        cursor: "pointer",
+                        textAlign: "left",
+                        width: "100%",
                       }}
                     >
-                      {link.label}
-                    </span>
-                    {link.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        onClick={() => setMobileMenuOpen(false)}
+                      <span>{link.label}</span>
+                      <span
                         style={{
-                          fontFamily: "var(--font-geist-sans)",
-                          fontSize: "0.95rem",
-                          color: "var(--text)",
-                          textDecoration: "none",
-                          paddingLeft: "12px",
-                          borderLeft: "2px solid var(--border)",
+                          fontSize: "0.7rem",
+                          color: "var(--muted)",
+                          transition: "transform 0.2s ease",
+                          transform: mobileIndustriesOpen ? "rotate(180deg)" : "rotate(0deg)",
                         }}
                       >
-                        {child.label}
-                      </Link>
-                    ))}
+                        ▼
+                      </span>
+                    </button>
+
+                    <AnimatePresence>
+                      {mobileIndustriesOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.2 }}
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "8px",
+                            paddingLeft: "12px",
+                            borderLeft: "2px solid var(--border)",
+                            marginTop: "2px",
+                            overflow: "hidden",
+                          }}
+                        >
+                          {link.children.map((child, idx) => {
+                            const isLast = idx === link.children!.length - 1;
+                            return (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                onClick={() => {
+                                  setMobileMenuOpen(false);
+                                  setMobileIndustriesOpen(false);
+                                }}
+                                style={{
+                                  fontFamily: "var(--font-geist-sans)",
+                                  fontSize: "0.95rem",
+                                  color: isLast ? "var(--accent)" : "var(--text)",
+                                  textDecoration: "none",
+                                  padding: "4px 0",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "space-between",
+                                  fontWeight: isLast ? 600 : 400,
+                                }}
+                              >
+                                <span>{child.label}</span>
+                                {isLast && <span>→</span>}
+                              </Link>
+                            );
+                          })}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 );
               }

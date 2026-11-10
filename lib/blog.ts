@@ -9,6 +9,7 @@ export interface BlogPost {
   updated: string;
   slug: string;
   content: string;
+  category?: string;
 }
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
@@ -36,6 +37,7 @@ export function getAllPosts(): BlogPost[] {
       updated: data.updated || data.date || "",
       slug,
       content,
+      category: data.category || undefined,
     });
   }
 
@@ -59,6 +61,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
     updated: data.updated || data.date || "",
     slug: data.slug || slug,
     content,
+    category: data.category || undefined,
   };
 }
 

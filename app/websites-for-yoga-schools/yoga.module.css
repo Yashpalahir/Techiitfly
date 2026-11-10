@@ -1,0 +1,165 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Yoga Theme Scoped Stylesheet — Scoped strictly to /websites-for-yoga-schools
+   Palette: Warm Sand / Sage Green / Soft Saffron / Deep Espresso Charcoal
+   WCAG AA Contrast Verified in both Light & Dark modes
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.yogaTheme {
+  /* ── Light Mode Palette (Default or [data-theme="light"]) ── */
+  --yoga-bg: #FAF6F0;
+  --yoga-surface: #FFFFFF;
+  --yoga-surface-2: #F2ECE3;
+  --yoga-border: rgba(78, 65, 52, 0.12);
+  --yoga-border-hover: rgba(56, 94, 70, 0.4);
+  --yoga-text: #231C16;
+  --yoga-muted: #5C5248;
+  --yoga-sage: #385E46;
+  --yoga-sage-dim: rgba(56, 94, 70, 0.1);
+  --yoga-sage-border: rgba(56, 94, 70, 0.25);
+  --yoga-saffron: #B45309;
+  --yoga-saffron-dim: rgba(180, 83, 9, 0.12);
+  --yoga-saffron-border: rgba(180, 83, 9, 0.28);
+  --yoga-btn-primary-bg: #385E46;
+  --yoga-btn-primary-text: #FFFFFF;
+  --yoga-card-shadow: 0 8px 24px -6px rgba(78, 65, 52, 0.08);
+  --yoga-card-hover-shadow: 0 16px 36px -8px rgba(56, 94, 70, 0.16);
+
+  background-color: var(--yoga-bg);
+  color: var(--yoga-text);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ── Dark Mode Palette ── */
+:global([data-theme="dark"]) .yogaTheme,
+:global(html:not([data-theme="light"])) .yogaTheme {
+  --yoga-bg: #11100E;
+  --yoga-surface: #1B1814;
+  --yoga-surface-2: #24201A;
+  --yoga-border: rgba(245, 239, 235, 0.1);
+  --yoga-border-hover: rgba(124, 169, 139, 0.45);
+  --yoga-text: #F5EFEB;
+  --yoga-muted: #A89F95;
+  --yoga-sage: #7CA98B;
+  --yoga-sage-dim: rgba(124, 169, 139, 0.15);
+  --yoga-sage-border: rgba(124, 169, 139, 0.3);
+  --yoga-saffron: #F59E0B;
+  --yoga-saffron-dim: rgba(245, 158, 11, 0.15);
+  --yoga-saffron-border: rgba(245, 158, 11, 0.3);
+  --yoga-btn-primary-bg: #7CA98B;
+  --yoga-btn-primary-text: #0E1A12;
+  --yoga-card-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.45);
+  --yoga-card-hover-shadow: 0 18px 42px -10px rgba(124, 169, 139, 0.22);
+}
+
+/* ── Interactive Card ── */
+.yogaCard {
+  background: var(--yoga-surface);
+  border: 1px solid var(--yoga-border);
+  border-radius: 20px;
+  box-shadow: var(--yoga-card-shadow);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.yogaCard:hover {
+  border-color: var(--yoga-border-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--yoga-card-hover-shadow);
+}
+
+/* ── Badge Pill ── */
+.yogaBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-geist-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--yoga-sage);
+  background: var(--yoga-sage-dim);
+  border: 1px solid var(--yoga-sage-border);
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+/* ── Primary Action Button ── */
+.yogaBtnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  background: var(--yoga-btn-primary-bg);
+  color: var(--yoga-btn-primary-text);
+  font-family: var(--font-geist-sans);
+  font-size: 0.98rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(56, 94, 70, 0.28);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.yogaBtnPrimary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 6px 24px rgba(56, 94, 70, 0.36);
+}
+
+/* ── Secondary Outline Button ── */
+.yogaBtnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 10px;
+  background: var(--yoga-surface);
+  color: var(--yoga-text);
+  border: 1.5px solid var(--yoga-border);
+  font-family: var(--font-geist-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.18s ease, transform 0.18s ease, background-color 0.18s ease;
+}
+
+.yogaBtnSecondary:hover {
+  border-color: var(--yoga-sage);
+  background: var(--yoga-surface-2);
+  transform: translateY(-2px);
+}
+
+/* ── Empty Photo Slot UI ── */
+.imageSlot {
+  border: 1.5px dashed var(--yoga-border);
+  border-radius: 16px;
+  background: var(--yoga-surface-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px 20px;
+  transition: border-color 0.2s ease;
+}
+
+.imageSlot:hover {
+  border-color: var(--yoga-sage);
+}
+
+/* ── Accessible Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .yogaTheme,
+  .yogaTheme *,
+  .yogaCard,
+  .yogaBtnPrimary,
+  .yogaBtnSecondary {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transform: none !important;
+  }
+}

@@ -208,4 +208,11 @@ details.faq-item[open] {
   box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.3) !important;
 }
 
+/* Industry Card Hover */
+.industry-card:hover {
+  border-color: var(--accent) !important;
+  transform: translateY(-3px);
+  box-shadow: var(--card-hover-shadow) !important;
+}
+
 

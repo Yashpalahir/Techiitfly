@@ -152,7 +152,7 @@ export default function PrivacyPage() {
                 2. How We Receive Contact &amp; What We Collect
               </h2>
               <p style={{ color: "var(--muted)", marginBottom: "14px" }}>
-                We operate a static website with no user accounts, database logins, or automated data harvesting. We only receive personal information that you intentionally share with us through:
+                We operate a static website with no user accounts, database logins, or automated data harvesting. The site uses Google Analytics to understand how visitors use it. We only receive personal information that you intentionally share with us through:
               </p>
               <ul style={{ color: "var(--muted)", paddingLeft: "20px", margin: 0, display: "flex", flexDirection: "column", gap: "8px" }}>
                 <li>

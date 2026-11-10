@@ -220,7 +220,7 @@ export function getLegalText(): {
       paragraphs: [
         `15.1 We keep your business information, logins and non-public Content confidential and use them only for your Project.`,
         `15.2 Please share logins through a secure method and change passwords after handover.`,
-        `15.3 How we handle personal data collected through our Website is described in our Privacy Policy (/privacy).`,
+        `15.3 How we handle personal data collected through our Website is described in our Privacy Policy (/privacy). The site uses Google Analytics to understand how visitors use it.`,
         `15.4 For websites and apps we build, you decide what personal data is collected from your users. You are responsible for your own privacy notice and compliance with India's Digital Personal Data Protection Act, 2023. We process that data only as needed to build and support your Project.`,
       ],
     },

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { SITE, getConsultUrl } from "@/content/site";
+import { INDUSTRIES } from "@/content/industries";
 import { trackEvent } from "@/lib/tracking";
 
 export default function Footer() {
@@ -112,6 +113,12 @@ export default function Footer() {
             Pricing &amp; Add-ons
           </Link>
           <Link
+            href="/industries"
+            style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", textDecoration: "none" }}
+          >
+            Industries
+          </Link>
+          <Link
             href="/blog"
             style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", textDecoration: "none" }}
           >
@@ -181,23 +188,20 @@ export default function Footer() {
           >
             Website Development Pune
           </Link>
+          {INDUSTRIES.map((ind) => (
+            <Link
+              key={ind.href}
+              href={ind.href}
+              style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", textDecoration: "none" }}
+            >
+              {ind.name}
+            </Link>
+          ))}
           <Link
-            href="/websites-for-yoga-schools"
-            style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", textDecoration: "none" }}
+            href="/industries"
+            style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--accent)", textDecoration: "none" }}
           >
-            Yoga Schools &amp; Retreats
-          </Link>
-          <Link
-            href="/websites-for-coaching-classes"
-            style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", textDecoration: "none" }}
-          >
-            Coaching Classes &amp; Tutors
-          </Link>
-          <Link
-            href="/websites-for-dentists"
-            style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", textDecoration: "none" }}
-          >
-            Dentists &amp; Dental Clinics
+            View all industries →
           </Link>
         </div>
 
