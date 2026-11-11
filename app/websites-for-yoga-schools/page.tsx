@@ -1426,6 +1426,28 @@ export default function YogaSchoolsPage() {
                 </Link>
               </div>
 
+              <p
+                style={{
+                  fontFamily: "var(--font-geist-sans)",
+                  fontSize: "0.96rem",
+                  color: "var(--yoga-muted)",
+                  margin: "0 auto 20px",
+                  textAlign: "center",
+                }}
+              >
+                <Link
+                  href="/blog/yoga-school-website-checklist"
+                  style={{
+                    color: "var(--yoga-text)",
+                    textDecoration: "underline",
+                    textUnderlineOffset: "3px",
+                    fontWeight: 500,
+                  }}
+                >
+                  Read our yoga school website checklist
+                </Link>
+              </p>
+
               <div
                 style={{
                   display: "flex",
