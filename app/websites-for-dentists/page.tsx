@@ -69,10 +69,7 @@ export default function WebsitesForDentistsPage() {
     serviceType: "Websites for Dentists & Dental Clinics",
     provider: {
       "@type": "ProfessionalService",
-      name: SITE.name,
-      telephone: SITE.structuredPhone,
-      email: SITE.contactEmail,
-      url: SITE.siteUrl,
+      "@id": "https://www.techiitfly.com/#organization",
     },
     areaServed: {
       "@type": "City",

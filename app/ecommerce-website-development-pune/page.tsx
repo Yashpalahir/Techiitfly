@@ -154,16 +154,7 @@ export default function EcommercePunePage() {
       "Ecommerce website development company in Pune. Online stores with payment gateway and admin dashboard from ₹59,999, live in 14–21 days. Free 15-minute call.",
     provider: {
       "@type": "ProfessionalService",
-      name: SITE.name,
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Pune",
-        addressRegion: "Maharashtra",
-        addressCountry: "IN",
-      },
-      telephone: "+919373917738",
-      email: SITE.contactEmail,
-      url: SITE.siteUrl,
+      "@id": "https://www.techiitfly.com/#organization",
     },
     areaServed: [
       {

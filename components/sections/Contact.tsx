@@ -199,7 +199,7 @@ export default function Contact() {
                 ● {SITE.replyHours}
               </p>
               <p style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", lineHeight: 1.5 }}>
-                Direct access to founder Aditya Chavhan:
+                Direct access to the founders (IIT Bombay &amp; NIT alumni):
               </p>
             </div>
 
@@ -417,7 +417,7 @@ export default function Contact() {
                   textAlign: "center",
                 }}
               >
-                ✓ Message received! Aditya will get back to you within 24 hours.
+                ✓ Message received! Our team will get back to you within 24 hours.
               </div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
@@ -629,7 +629,7 @@ export default function Contact() {
               letterSpacing: "0.05em",
             }}
           >
-            {SITE.name} · Founder {SITE.founder} · {SITE.location}
+            {SITE.name} · Founded by IIT Bombay &amp; NIT alumni · {SITE.location}
           </p>
         </div>
       </div>

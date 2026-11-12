@@ -208,10 +208,7 @@ export default function YogaSchoolsPage() {
     serviceType: "Websites for Yoga Schools & Retreats",
     provider: {
       "@type": "ProfessionalService",
-      name: SITE.name,
-      telephone: SITE.structuredPhone,
-      email: SITE.contactEmail,
-      url: SITE.siteUrl,
+      "@id": "https://www.techiitfly.com/#organization",
     },
     description:
       "Specialized website design and development for yoga schools, TTC institutes, and retreat centers.",

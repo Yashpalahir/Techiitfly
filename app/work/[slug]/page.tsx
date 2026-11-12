@@ -76,9 +76,8 @@ export default async function CaseStudyPage({
       ? `${SITE.siteUrl}${project.featuredScreenshots.desktop}`
       : `${SITE.siteUrl}/og/home.png`,
     creator: {
-      "@type": "Organization",
-      name: "techiitfly",
-      url: SITE.siteUrl,
+      "@type": "ProfessionalService",
+      "@id": "https://www.techiitfly.com/#organization",
     },
     about: {
       "@type": "Organization",

@@ -62,10 +62,7 @@ export default function CoachingClassesPage() {
     serviceType: "Websites for Coaching Classes & Tutors",
     provider: {
       "@type": "ProfessionalService",
-      name: SITE.name,
-      telephone: SITE.structuredPhone,
-      email: SITE.contactEmail,
-      url: SITE.siteUrl,
+      "@id": "https://www.techiitfly.com/#organization",
     },
     description:
       "Specialized website development for coaching classes, tutoring academies, and independent educators.",

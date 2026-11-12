@@ -231,10 +231,21 @@ export default function WebsiteCostIndiaPage() {
               fontSize: "1.02rem",
               lineHeight: 1.6,
               color: "var(--muted)",
+              marginBottom: "16px",
+            }}
+          >
+            At techiitfly we quote a fixed price after a free 15-minute call, so you know the total before work starts.
+          </p>
+
+          <p
+            style={{
+              fontFamily: "var(--font-geist-mono)",
+              fontSize: "0.78rem",
+              color: "var(--muted)",
               marginBottom: "48px",
             }}
           >
-            At techiitfly we quote a fixed price after a free 15-minute call, so you know the total before work starts. Last updated: November 2026.
+            Last updated: November 2026
           </p>
 
           {/* Section: Website prices at a glance */}

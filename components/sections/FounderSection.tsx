@@ -112,7 +112,7 @@ export default function FounderSection() {
                   textDecoration: "none",
                 }}
               >
-                <span>Chat with Aditya on WhatsApp</span>
+                <span>Chat with the founders on WhatsApp</span>
                 <span>↗</span>
               </a>
 

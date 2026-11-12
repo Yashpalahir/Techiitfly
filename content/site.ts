@@ -56,7 +56,7 @@ export const SITE: SiteConfig = {
   name: "techiitfly",
   brand: "techiitfly",
   tagline: "Websites that bring you customers. Delivered in 7 days.",
-  founder: "Aditya Chavhan",
+  founder: "Yashpal Baldaniya, Rahul Singh Kotiyal, Aditya Chavhan",
   location: "Pune, India",
   email: "contact@techiitfly.com",
   contactEmail: "contact@techiitfly.com",

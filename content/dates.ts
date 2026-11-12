@@ -3,14 +3,14 @@ export const SITE_LAST_UPDATED_ISO = "2026-10-10";
 
 export const PAGE_DATES: Record<string, { display: string; iso: string }> = {
   "/": { display: "October 2026", iso: "2026-10-10" },
-  "/pricing": { display: "October 2026", iso: "2026-10-10" },
+  "/pricing": { display: "November 2026", iso: "2026-11-12" },
   "/industries": { display: "October 2026", iso: "2026-10-28" },
   "/mathsy-meet": { display: "October 2026", iso: "2026-10-10" },
   "/xray": { display: "October 2026", iso: "2026-10-10" },
   "/website-development-pune": { display: "November 2026", iso: "2026-11-12" },
-  "/websites-for-yoga-schools": { display: "October 2026", iso: "2026-10-10" },
-  "/websites-for-coaching-classes": { display: "October 2026", iso: "2026-10-10" },
-  "/websites-for-dentists": { display: "October 2026", iso: "2026-10-27" },
+  "/websites-for-yoga-schools": { display: "November 2026", iso: "2026-11-12" },
+  "/websites-for-coaching-classes": { display: "November 2026", iso: "2026-11-12" },
+  "/websites-for-dentists": { display: "November 2026", iso: "2026-11-12" },
   "/website-cost-india": { display: "November 2026", iso: "2026-11-12" },
   "/website-maintenance-services": { display: "November 2026", iso: "2026-11-12" },
   "/ecommerce-website-development-pune": { display: "November 2026", iso: "2026-11-12" },

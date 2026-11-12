@@ -177,16 +177,7 @@ export default function PuneWebDevPage() {
       "Web design and development company in Pune. Fixed-price websites live in 7 days, from ₹12,999. Free 15-minute consultation. Get a quote today.",
     provider: {
       "@type": "ProfessionalService",
-      name: SITE.name,
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Pune",
-        addressRegion: "Maharashtra",
-        addressCountry: "IN",
-      },
-      telephone: "+919373917738",
-      email: SITE.contactEmail,
-      url: SITE.siteUrl,
+      "@id": "https://www.techiitfly.com/#organization",
     },
     areaServed: [
       {
@@ -306,8 +297,8 @@ export default function PuneWebDevPage() {
             }}
           >
             Whether you need an experienced <strong>website designer in Pune</strong> for clean, brand-defining UI or a
-            dedicated <strong>web developer in Pune</strong> for fast, conversion-optimized code, founder Aditya Chavhan
-            delivers guaranteed timelines and complete ownership.
+            dedicated <strong>web developer in Pune</strong> for fast, conversion-optimized code, our founding team of
+            IIT Bombay &amp; NIT alumni delivers guaranteed timelines and complete ownership.
           </p>
           <p
             style={{

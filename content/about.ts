@@ -1,6 +1,6 @@
 // Founder bio & story for techiitfly
 // When story or photo is empty, the founder block is cleanly hidden in the UI.
-export const founderName = "Aditya Chavhan";
+export const founderName = "Yashpal Baldaniya, Rahul Singh Kotiyal, Aditya Chavhan";
 export const founderPhoto: string = ""; // e.g. "/images/aditya.webp"
 export const founderStory: string = ""; // 2-3 lines of story when ready
 

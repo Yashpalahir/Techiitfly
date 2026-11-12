@@ -28,6 +28,7 @@ const geistMono = Geist_Mono({
 import { SITE } from "@/content/site";
 import Analytics from "@/components/analytics/Analytics";
 import { buildOpenGraph, buildTwitter } from "@/lib/metadata";
+import { ORGANIZATION_SCHEMA } from "@/lib/schema";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.techiitfly.com"),
@@ -37,8 +38,12 @@ export const metadata: Metadata = {
   },
   description: SITE.metaDescription,
   keywords: ["website development", "Pune", "web design", "business websites", "techiitfly", "7 day website"],
-  authors: [{ name: "Aditya Chavhan", url: SITE.siteUrl }],
-  creator: "Aditya Chavhan",
+  authors: [
+    { name: "Yashpal Baldaniya", url: "https://www.techiitfly.com/about" },
+    { name: "Rahul Singh Kotiyal", url: "https://www.techiitfly.com/about" },
+    { name: "Aditya Chavhan", url: "https://www.techiitfly.com/about" },
+  ],
+  creator: "techiitfly",
   openGraph: buildOpenGraph({
     title: "techiitfly — Website Development in Pune | Live in 7 Days",
     description: SITE.metaDescription,
@@ -68,22 +73,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "techiitfly",
-    url: "https://www.techiitfly.com",
-    logo: "https://www.techiitfly.com/favicon.svg",
-    image: "https://www.techiitfly.com/og/home.png",
-    email: "contact@techiitfly.com",
-    telephone: "+91 93739 17738",
-    areaServed: "Pune",
-    sameAs: [
-      SITE.instagramUrl,
-      SITE.linkedinUrl,
-    ],
-  };
-
   return (
     <html
       lang="en"
@@ -91,10 +80,10 @@ export default function RootLayout({
       className={`${instrumentSerif.variable} ${geistSans.variable} ${geistMono.variable}`}
     >
       <head>
-        {/* JSON-LD Organization */}
+        {/* Single Shared Schema.org Organization (ProfessionalService) */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_SCHEMA) }}
         />
         {/* Theme: default dark, avoids FOUC */}
         <script

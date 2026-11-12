@@ -58,9 +58,8 @@ export default function MathsyMeetPage() {
     operatingSystem: "Web",
     applicationCategory: "EducationalApplication",
     publisher: {
-      "@type": "Organization",
-      name: "techiitfly",
-      url: SITE.siteUrl,
+      "@type": "ProfessionalService",
+      "@id": "https://www.techiitfly.com/#organization",
     },
     offers: [
       {
@@ -349,8 +348,8 @@ export default function MathsyMeetPage() {
               }}
             >
               {SITE.meetDemoReady
-                ? "Try the live classroom in our free demo room, or contact founder Aditya Chavhan for an onboarding walkthrough."
-                : "Book a personalized walkthrough with founder Aditya Chavhan to see the live classroom in action."}
+                ? "Try the live classroom in our free demo room, or contact our founding team for an onboarding walkthrough."
+                : "Book a personalized walkthrough with our founding team to see the live classroom in action."}
             </p>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "16px", flexWrap: "wrap" }}>
               {SITE.meetDemoReady ? (

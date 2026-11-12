@@ -623,7 +623,7 @@ export default function MeetPlanCards({
               }}
             >
               <span style={{ color: "var(--accent)", fontWeight: 700 }}>✓</span>
-              <span>Priority WhatsApp support with founder Aditya Chavhan</span>
+              <span>Priority WhatsApp support directly with the founders</span>
             </li>
             <li
               style={{
@@ -861,7 +861,7 @@ export default function MeetPlanCards({
               transition: "all 0.15s ease",
             }}
           >
-            <span>Talk to Founder Aditya Chavhan</span>
+            <span>Talk to the Founders</span>
             <span aria-hidden="true" style={{ marginLeft: "6px" }}>→</span>
           </a>
 

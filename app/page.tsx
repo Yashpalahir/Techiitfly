@@ -41,23 +41,6 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const localBusinessJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: "techiitfly",
-    url: "https://www.techiitfly.com",
-    logo: "https://www.techiitfly.com/favicon.svg",
-    image: "https://www.techiitfly.com/og/home.png",
-    priceRange: "From ₹12,999",
-    email: "contact@techiitfly.com",
-    telephone: "+91 93739 17738",
-    areaServed: "Pune",
-    sameAs: [
-      SITE.instagramUrl,
-      SITE.linkedinUrl,
-    ],
-  };
-
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -129,10 +112,6 @@ export default function Home() {
         href="/screenshots/yogagarhi-desktop.webp"
         media="(min-width: 1024px)"
         fetchPriority="high"
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
       />
       <script
         type="application/ld+json"

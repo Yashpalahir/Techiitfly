@@ -74,16 +74,7 @@ export default function WebsiteMaintenanceServicesPage() {
       "Website maintenance from ₹2,500 per month: security updates, backups, speed checks and content edits. Month-to-month billing. Get a quote on WhatsApp.",
     provider: {
       "@type": "ProfessionalService",
-      name: SITE.name,
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Pune",
-        addressRegion: "Maharashtra",
-        addressCountry: "IN",
-      },
-      telephone: SITE.structuredPhone,
-      email: SITE.contactEmail,
-      url: SITE.siteUrl,
+      "@id": "https://www.techiitfly.com/#organization",
     },
     areaServed: {
       "@type": "Country",
@@ -209,10 +200,21 @@ export default function WebsiteMaintenanceServicesPage() {
               fontSize: "1.1rem",
               lineHeight: 1.65,
               color: "var(--text)",
-              marginBottom: "32px",
+              marginBottom: "16px",
             }}
           >
             Website maintenance from ₹2,500 per month covers security updates, backups, speed checks and content edits, so your website stays fast, safe and up to date. It is billed month to month. Prices exclude GST.
+          </p>
+
+          <p
+            style={{
+              fontFamily: "var(--font-geist-mono)",
+              fontSize: "0.78rem",
+              color: "var(--muted)",
+              marginBottom: "28px",
+            }}
+          >
+            Last updated: November 2026
           </p>
 
           <div style={{ marginBottom: "56px" }}>

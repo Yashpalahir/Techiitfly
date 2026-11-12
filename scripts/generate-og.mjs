@@ -153,7 +153,7 @@ const OG_CONFIGS = [
     filename: "industry-pune.png",
     badge: "Pune, Maharashtra",
     headline: "Website Development in Pune",
-    subline: "Fast, mobile-friendly websites built by Aditya Chavhan. Live in 7 days.",
+    subline: "Fast, mobile-friendly websites built by IIT Bombay & NIT alumni founders. Live in 7 days.",
     desktopImg: yogagarhiDesktop,
     desktopUrl: "techiitfly.com/website-development-pune",
     hasMobile: false,

@@ -182,7 +182,7 @@ export default function Hero() {
               marginBottom: "28px",
             }}
           >
-            Fast, mobile-friendly websites for growing businesses, built by Aditya Chavhan. Fixed-price quotes and guaranteed delivery.
+            Fast, mobile-friendly websites for growing businesses, built by IIT Bombay &amp; NIT alumni founders. Fixed-price quotes and guaranteed delivery.
           </p>
 
           {/* CTAs */}

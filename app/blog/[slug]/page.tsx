@@ -116,15 +116,12 @@ export default async function BlogPostPage({
     datePublished: post.date,
     dateModified: post.updated || post.date,
     author: {
-      "@type": "Organization",
-      name: "techiitfly",
-      url: SITE.siteUrl,
+      "@type": "ProfessionalService",
+      "@id": "https://www.techiitfly.com/#organization",
     },
     publisher: {
-      "@type": "Organization",
-      name: "techiitfly",
-      url: SITE.siteUrl,
-      logo: `${SITE.siteUrl}/favicon.svg`,
+      "@type": "ProfessionalService",
+      "@id": "https://www.techiitfly.com/#organization",
     },
     mainEntityOfPage: {
       "@type": "WebPage",

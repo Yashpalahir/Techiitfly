@@ -130,6 +130,9 @@ export default function AboutPage() {
         name: "About techiitfly | Website Development Company in Pune",
         description:
           "Meet the three co-founders of techiitfly, a Pune website development company. Two IIT Bombay alumni and one NIT Durgapur alumnus building fixed-price websites.",
+        about: {
+          "@id": "https://www.techiitfly.com/#organization",
+        },
         breadcrumb: {
           "@type": "BreadcrumbList",
           itemListElement: [
@@ -150,78 +153,52 @@ export default function AboutPage() {
         dateModified: pageDate.iso,
       },
       {
-        "@type": ["Organization", "ProfessionalService"],
-        "@id": "https://www.techiitfly.com/#organization",
-        name: "techiitfly",
-        url: "https://www.techiitfly.com",
-        description:
-          "Website development company in Pune. Fixed-price websites live in 7 days, starting at ₹12,999.",
-        telephone: "+919373917738",
-        email: "contact@techiitfly.com",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Pune",
-          addressRegion: "Maharashtra",
-          addressCountry: "IN",
-        },
-        areaServed: {
-          "@type": "Country",
-          name: "India",
-        },
-        sameAs: [
-          "https://www.linkedin.com/company/techiitfly",
-          "https://www.instagram.com/techiitfly/",
-        ],
-        founder: [
-          { "@id": "https://www.techiitfly.com/#person-yashpal" },
-          { "@id": "https://www.techiitfly.com/#person-rahul" },
-          { "@id": "https://www.techiitfly.com/#person-aditya" },
-        ],
-      },
-      {
         "@type": "Person",
-        "@id": "https://www.techiitfly.com/#person-yashpal",
+        "@id": "https://www.techiitfly.com/about#yashpal-baldaniya",
         name: "Yashpal Baldaniya",
         jobTitle: "Co-founder",
         worksFor: {
-          "@type": "ProfessionalService",
-          name: "techiitfly",
           "@id": "https://www.techiitfly.com/#organization",
         },
         alumniOf: {
           "@type": "EducationalOrganization",
           name: "IIT Bombay",
         },
+        sameAs: [
+          // TODO: Add LinkedIn URL for Yashpal Baldaniya
+        ],
       },
       {
         "@type": "Person",
-        "@id": "https://www.techiitfly.com/#person-rahul",
+        "@id": "https://www.techiitfly.com/about#rahul-singh-kotiyal",
         name: "Rahul Singh Kotiyal",
         jobTitle: "Co-founder",
         worksFor: {
-          "@type": "ProfessionalService",
-          name: "techiitfly",
           "@id": "https://www.techiitfly.com/#organization",
         },
         alumniOf: {
           "@type": "EducationalOrganization",
           name: "IIT Bombay",
         },
+        sameAs: [
+          // TODO: Add LinkedIn URL for Rahul Singh Kotiyal
+        ],
       },
       {
         "@type": "Person",
-        "@id": "https://www.techiitfly.com/#person-aditya",
+        "@id": "https://www.techiitfly.com/about#aditya-chavhan",
         name: "Aditya Chavhan",
         jobTitle: "Co-founder",
         worksFor: {
-          "@type": "ProfessionalService",
-          name: "techiitfly",
           "@id": "https://www.techiitfly.com/#organization",
         },
         alumniOf: {
           "@type": "EducationalOrganization",
           name: "NIT Durgapur",
         },
+        sameAs: [
+          // TODO: Add LinkedIn URL for Aditya Chavhan
+        ],
       },
     ],
   };
