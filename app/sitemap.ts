@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/pricing",
+    "/website-cost-india",
     "/industries",
     "/blog",
     "/mathsy-meet",
@@ -34,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority:
       route === ""
         ? 1.0
-        : route.startsWith("/websites") || route === "/pricing" || route === "/blog" || route === "/industries"
+        : route.startsWith("/website") || route === "/pricing" || route === "/blog" || route === "/industries"
         ? 0.8
         : 0.6,
   }));

@@ -123,6 +123,12 @@ export default function Home() {
 
   return (
     <>
+      <link
+        rel="preload"
+        as="image"
+        href="/screenshots/yogagarhi-desktop.webp"
+        fetchPriority="high"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}

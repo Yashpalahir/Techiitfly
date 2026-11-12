@@ -54,40 +54,31 @@ const HERO_SLIDES: HeroSlide[] = [
 
 export default function Hero() {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
-  const [isMobileOrReducedMotion, setIsMobileOrReducedMotion] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [hasChangedSlide, setHasChangedSlide] = useState(false);
 
+  // Auto-advance slides every 4.2 seconds unless paused or mobile/prefers-reduced-motion
   useEffect(() => {
-    // Detect mobile or prefers-reduced-motion
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const checkMobile = () => window.innerWidth < 1024 || mediaQuery.matches;
-    
-    setIsMobileOrReducedMotion(checkMobile());
-    
-    const handleResize = () => setIsMobileOrReducedMotion(checkMobile());
-    window.addEventListener("resize", handleResize);
-    mediaQuery.addEventListener("change", handleResize);
-    
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      mediaQuery.removeEventListener("change", handleResize);
-    };
-  }, []);
-
-  // Auto-advance slides every 4.2 seconds unless paused or prefers-reduced-motion
-  useEffect(() => {
-    if (isPaused || isMobileOrReducedMotion) return;
+    if (isPaused) return;
+    if (
+      typeof window !== "undefined" &&
+      (window.innerWidth < 1024 ||
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+    ) {
+      return;
+    }
 
     const timer = setInterval(() => {
+      setHasChangedSlide(true);
       setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length);
     }, 4200);
 
     return () => clearInterval(timer);
-  }, [isPaused, isMobileOrReducedMotion, activeSlide]);
+  }, [isPaused, activeSlide]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    if (isMobileOrReducedMotion) return;
+    if (typeof window !== "undefined" && window.innerWidth < 1024) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
@@ -113,10 +104,12 @@ export default function Hero() {
   const nextSlide = HERO_SLIDES[(activeSlide + 1) % HERO_SLIDES.length];
 
   const handlePrev = () => {
+    setHasChangedSlide(true);
     setActiveSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
   };
 
   const handleNext = () => {
+    setHasChangedSlide(true);
     setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length);
   };
 
@@ -318,7 +311,10 @@ export default function Hero() {
                   id={`hero-tab-${slide.id}`}
                   aria-selected={isActive}
                   aria-controls={`hero-panel-${slide.id}`}
-                  onClick={() => setActiveSlide(idx)}
+                  onClick={() => {
+                    setHasChangedSlide(true);
+                    setActiveSlide(idx);
+                  }}
                   onKeyDown={(e) => {
                     if (e.key === "ArrowRight") {
                       e.preventDefault();
@@ -375,7 +371,7 @@ export default function Hero() {
                     </span>
                   )}
                   {/* Progress bar on active tab */}
-                  {isActive && !isPaused && !isMobileOrReducedMotion && (
+                  {isActive && !isPaused && (
                     <span
                       key={`progress-${idx}`}
                       className="tab-progress-bar"
@@ -407,21 +403,20 @@ export default function Hero() {
             }}
           >
             <div
+              className="hero-stage-3d"
               style={{
                 position: "relative",
                 width: "100%",
                 maxWidth: "500px",
                 height: "320px",
                 transformStyle: "preserve-3d",
-                transform: isMobileOrReducedMotion
-                  ? "none"
-                  : `rotateY(${currentRotateY}deg) rotateX(${currentRotateX}deg)`,
+                transform: `rotateY(${currentRotateY}deg) rotateX(${currentRotateX}deg)`,
                 transition: "transform 0.15s ease-out",
               }}
             >
               {/* 1. Behind Frame: Upcoming Next Slide */}
               <div
-                className="force-dark"
+                className="force-dark hero-behind-card"
                 data-theme="dark"
                 style={{
                   position: "absolute",
@@ -430,9 +425,7 @@ export default function Hero() {
                   background: "#100E0C",
                   border: "1px solid rgba(255,255,255,0.12)",
                   boxShadow: "var(--card-shadow), 0 20px 40px rgba(0,0,0,0.4)",
-                  transform: isMobileOrReducedMotion
-                    ? "translate(-12px, -12px)"
-                    : "translate3d(-35px, -25px, -60px)",
+                  transform: "translate3d(-35px, -25px, -60px)",
                   opacity: 0.82,
                   overflow: "hidden",
                   zIndex: 1,
@@ -488,7 +481,7 @@ export default function Hero() {
                 id={`hero-panel-${current.id}`}
                 role="tabpanel"
                 aria-labelledby={`hero-tab-${current.id}`}
-                className="force-dark hero-front-card"
+                className={`force-dark hero-front-card ${hasChangedSlide ? "hero-animate-swap" : ""}`}
                 data-theme="dark"
                 style={{
                   position: "absolute",
@@ -497,9 +490,7 @@ export default function Hero() {
                   background: "#100E0C",
                   border: "1.5px solid var(--accent)",
                   boxShadow: "0 25px 60px rgba(0,0,0,0.6), 0 0 25px rgba(245,158,11,0.18)",
-                  transform: isMobileOrReducedMotion
-                    ? "none"
-                    : "translate3d(0px, 0px, 10px)",
+                  transform: "translate3d(0px, 0px, 10px)",
                   opacity: 1,
                   overflow: "hidden",
                   zIndex: 2,
@@ -607,7 +598,7 @@ export default function Hero() {
               {/* 3. Third Frame: Active Site Mobile View */}
               <div
                 key={`mobile-${current.id}`}
-                className="force-dark hero-mobile-card"
+                className={`force-dark hero-mobile-card ${hasChangedSlide ? "hero-animate-swap" : ""}`}
                 data-theme="dark"
                 style={{
                   position: "absolute",
@@ -619,9 +610,7 @@ export default function Hero() {
                   background: "#100E0C",
                   border: "2px solid rgba(255,255,255,0.18)",
                   boxShadow: "0 30px 60px rgba(0,0,0,0.75), 0 0 20px rgba(0,0,0,0.5)",
-                  transform: isMobileOrReducedMotion
-                    ? "translate(10px, 15px)"
-                    : "translate3d(35px, 35px, 70px)",
+                  transform: "translate3d(35px, 35px, 70px)",
                   overflow: "hidden",
                   zIndex: 3,
                 }}
@@ -757,11 +746,28 @@ export default function Hero() {
             transform: scale(1) translateY(0);
           }
         }
-        :global(.hero-front-card) {
+        :global(.hero-front-card.hero-animate-swap) {
           animation: heroCardSwap 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        :global(.hero-mobile-card) {
+        :global(.hero-mobile-card.hero-animate-swap) {
           animation: heroMobileSwap 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @media (max-width: 1023px), (prefers-reduced-motion: reduce) {
+          :global(.hero-stage-3d) {
+            transform: none !important;
+          }
+          :global(.hero-front-card) {
+            transform: none !important;
+          }
+          :global(.hero-mobile-card) {
+            transform: translate(10px, 15px) !important;
+          }
+          :global(.hero-behind-card) {
+            display: none !important;
+          }
+          :global(.tab-progress-bar) {
+            display: none !important;
+          }
         }
         @media (max-width: 640px) {
           :global(.hero-slide-badge) {

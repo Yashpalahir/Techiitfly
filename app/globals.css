@@ -215,4 +215,32 @@ details.faq-item[open] {
   box-shadow: var(--card-hover-shadow) !important;
 }
 
+/* Hero responsive 3D showcase */
+@media (max-width: 1023px), (prefers-reduced-motion: reduce) {
+  .hero-stage-3d {
+    transform: none !important;
+  }
+  .hero-front-card {
+    transform: none !important;
+  }
+  .hero-mobile-card {
+    transform: translate(10px, 15px) !important;
+  }
+  .hero-behind-card {
+    display: none !important;
+  }
+  .tab-progress-bar {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-slide-badge {
+    display: none !important;
+  }
+  .hero-visit-site-link {
+    display: none !important;
+  }
+}
+
 

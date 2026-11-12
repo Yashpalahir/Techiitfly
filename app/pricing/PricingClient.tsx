@@ -1725,6 +1725,25 @@ export default function PricingClient() {
                 </a>
               )}
             </div>
+
+            <div style={{ marginTop: "24px", textAlign: "center" }}>
+              <Link
+                href="/website-cost-india"
+                style={{
+                  fontFamily: "var(--font-geist-sans)",
+                  fontSize: "0.95rem",
+                  color: "var(--accent)",
+                  textDecoration: "underline",
+                  textUnderlineOffset: "4px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                }}
+              >
+                <span>How much does a website cost in India?</span>
+                <span>→</span>
+              </Link>
+            </div>
           </div>
         </motion.div>
       </div>

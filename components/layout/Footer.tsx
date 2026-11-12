@@ -113,6 +113,12 @@ export default function Footer() {
             Pricing &amp; Add-ons
           </Link>
           <Link
+            href="/website-cost-india"
+            style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", textDecoration: "none" }}
+          >
+            Website Cost in India
+          </Link>
+          <Link
             href="/industries"
             style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", textDecoration: "none" }}
           >
