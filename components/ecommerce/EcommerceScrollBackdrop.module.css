@@ -1,6 +1,8 @@
 /* ─────────────────────────────────────────────────────────────────────────────
-   EcommerceScrollBackdrop — Fixed Ambient Commerce Viewport Canvas
-   Digital Storefront, Shopping Cart & Scroll-Accelerated Commerce Orbit
+   EcommerceScrollBackdrop — Screen-to-Cart Order Flow
+   Left: Computer Screen / Digital Storefront
+   Right: Shopping Cart
+   Middle: Orders / Packages streaming along an arc on scroll
    ───────────────────────────────────────────────────────────────────────────── */
 
 .fixedBackdrop {
@@ -11,91 +13,72 @@
   z-index: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justifyContent: center;
   overflow: hidden;
-  opacity: 0.12;
+  opacity: 0.16;
   transition: opacity 0.4s ease;
 }
 
 :global([data-theme="dark"]) .fixedBackdrop,
 :global(html:not([data-theme="light"])) .fixedBackdrop {
-  opacity: 0.15;
+  opacity: 0.18;
 }
 
 .canvasWrapper {
   position: relative;
-  width: min(840px, 92vw);
-  height: min(840px, 92vw);
+  width: min(1000px, 96vw);
+  height: min(560px, 60vh);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-/* ── Concentric Commerce Pulse ── */
-.commercePulseRing {
-  transform-origin: 250px 250px;
-  transform-box: view-box;
-  animation: pulseRing 5s ease-in-out infinite;
+/* Floating ambient commerce sparkles */
+.floatingIcon {
+  position: absolute;
+  font-family: var(--font-geist-mono, monospace);
+  font-weight: 700;
+  color: var(--accent, #F59E0B);
+  opacity: 0.18;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
 }
 
-.centerCart {
-  transform-origin: 250px 250px;
-  transform-box: view-box;
-  animation: cartFloat 5.5s ease-in-out infinite;
+.icon1 {
+  top: 14%;
+  left: 6%;
+  font-size: 1.8rem;
+  animation: floatDrift 16s ease-in-out infinite;
 }
 
-/* ── Floating Currency Sparkles ── */
-.sparkle1 { animation: floatSparkle 5.2s ease-in-out infinite 0s; }
-.sparkle2 { animation: floatSparkle 6.1s ease-in-out infinite 1.2s; }
-.sparkle3 { animation: floatSparkle 5.7s ease-in-out infinite 2.4s; }
-.sparkle4 { animation: floatSparkle 6.5s ease-in-out infinite 3.6s; }
+.icon2 {
+  top: 76%;
+  left: 20%;
+  font-size: 1.6rem;
+  animation: floatDrift 19s ease-in-out infinite 2s;
+}
 
-@keyframes pulseRing {
+.icon3 {
+  top: 16%;
+  right: 8%;
+  font-size: 1.8rem;
+  animation: floatDrift 18s ease-in-out infinite 1s;
+}
+
+.icon4 {
+  bottom: 12%;
+  right: 18%;
+  font-size: 1.7rem;
+  animation: floatDrift 22s ease-in-out infinite 3s;
+}
+
+@keyframes floatDrift {
   0%, 100% {
-    transform: scale(0.96);
-    opacity: 0.25;
+    transform: translateY(0) rotate(0deg);
   }
   50% {
-    transform: scale(1.04);
-    opacity: 0.55;
-  }
-}
-
-@keyframes cartFloat {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-@keyframes floatSparkle {
-  0% {
-    transform: translateY(0) scale(0.8);
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.9;
-  }
-  75% {
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateY(-50px) scale(1.15);
-    opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .commercePulseRing,
-  .centerCart,
-  .sparkle1,
-  .sparkle2,
-  .sparkle3,
-  .sparkle4 {
-    animation: none !important;
-    transform: none !important;
+    transform: translateY(-16px) rotate(6deg);
   }
 }

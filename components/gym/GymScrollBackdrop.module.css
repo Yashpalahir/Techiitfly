@@ -1,96 +1,82 @@
-/* Gym & Fitness Center Themed Scroll Backdrop */
+/* ─────────────────────────────────────────────────────────────────────────────
+   GymScrollBackdrop — Interactive Athletic Lifter Doing Dumbbell Reps
+   Scroll-Driven Up and Down Dumbbell Lifting Motion & Cardiac Pulse
+   ───────────────────────────────────────────────────────────────────────────── */
 
 .fixedBackdrop {
   position: fixed;
   inset: 0;
   pointer-events: none;
+  user-select: none;
   z-index: 0;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justifyContent: center;
-  user-select: none;
+  overflow: hidden;
+  opacity: 0.16;
+  transition: opacity 0.4s ease;
+}
+
+:global([data-theme="dark"]) .fixedBackdrop,
+:global(html:not([data-theme="light"])) .fixedBackdrop {
+  opacity: 0.18;
 }
 
 .canvasWrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(92vw, 780px);
-  height: min(92vw, 780px);
-  opacity: 0.15;
-  animation: athleticPulse 12s ease-in-out infinite alternate;
-  will-change: transform, opacity;
-  pointer-events: none;
+  position: relative;
+  width: min(800px, 94vw);
+  height: min(640px, 75vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-@keyframes athleticPulse {
-  0% {
-    transform: translate(-50%, -50%) scale(0.96);
-    opacity: 0.12;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.04);
-    opacity: 0.18;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(0.98);
-    opacity: 0.14;
-  }
-}
-
-/* Floating athletic particles */
-.floatingParticle {
+/* Floating athletic elements */
+.floatingIcon {
   position: absolute;
   font-family: var(--font-geist-mono, monospace);
   font-weight: 800;
   color: var(--accent, #F97316);
-  opacity: 0.12;
+  opacity: 0.18;
   pointer-events: none;
   user-select: none;
   will-change: transform;
 }
 
-.particle1 {
-  top: 16%;
-  left: 10%;
-  font-size: 2.2rem;
-  animation: floatDrift1 18s ease-in-out infinite;
-}
-
-.particle2 {
-  top: 72%;
+.icon1 {
+  top: 14%;
   left: 8%;
-  font-size: 1.8rem;
-  animation: floatDrift2 22s ease-in-out infinite 3s;
-}
-
-.particle3 {
-  top: 24%;
-  right: 12%;
   font-size: 2rem;
-  animation: floatDrift3 20s ease-in-out infinite 1s;
+  animation: floatDrift 16s ease-in-out infinite;
 }
 
-.particle4 {
-  bottom: 18%;
+.icon2 {
+  top: 74%;
+  left: 14%;
+  font-size: 1.8rem;
+  animation: floatDrift 19s ease-in-out infinite 2s;
+}
+
+.icon3 {
+  top: 18%;
   right: 10%;
-  font-size: 2.4rem;
-  animation: floatDrift1 24s ease-in-out infinite 5s;
+  font-size: 2rem;
+  animation: floatDrift 17s ease-in-out infinite 1s;
 }
 
-@keyframes floatDrift1 {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-18px) rotate(6deg); }
+.icon4 {
+  bottom: 14%;
+  right: 12%;
+  font-size: 1.9rem;
+  animation: floatDrift 21s ease-in-out infinite 3s;
 }
 
-@keyframes floatDrift2 {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(16px) rotate(-8deg); }
-}
-
-@keyframes floatDrift3 {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-14px) scale(1.08); }
+@keyframes floatDrift {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(8deg);
+  }
 }
