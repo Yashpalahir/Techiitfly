@@ -6,6 +6,7 @@ import HowItWorks from "@/components/sections/HowItWorks";
 import Guarantee from "@/components/sections/Guarantee";
 import ConsultationBand from "@/components/sections/ConsultationBand";
 import FinalCta from "@/components/sections/FinalCta";
+import CoachingScrollBackdrop from "@/components/coaching/CoachingScrollBackdrop";
 import { SITE, getConsultUrl, getWhatsAppUrl } from "@/content/site";
 import { getPageDate } from "@/content/dates";
 import { buildOpenGraph, buildTwitter } from "@/lib/metadata";
@@ -118,7 +119,9 @@ export default function CoachingClassesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Header />
-      <main style={{ minHeight: "100vh", background: "var(--bg)", paddingTop: "80px" }}>
+      {/* Themed background backdrop for Coaching & Education */}
+      <CoachingScrollBackdrop />
+      <main style={{ minHeight: "100vh", background: "transparent", paddingTop: "80px", position: "relative", zIndex: 1 }}>
         {/* Hero */}
         <section
           style={{

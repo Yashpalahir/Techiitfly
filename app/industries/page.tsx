@@ -9,24 +9,24 @@ import { buildOpenGraph, buildTwitter } from "@/lib/metadata";
 import YogaZenAnimation from "@/components/yoga/YogaZenAnimation";
 
 export const metadata: Metadata = {
-  title: "Websites for Yoga, Clinics & Coaching Classes",
+  title: "Websites for Ecommerce, Yoga, Clinics & Coaching Classes",
   description:
-    "Websites for yoga schools, dental clinics, and coaching classes. Fast delivery, fixed prices, and direct WhatsApp lead capture.",
+    "Websites for ecommerce stores, yoga schools, dental clinics, and coaching classes. Fast delivery, fixed prices, and direct WhatsApp lead capture.",
   alternates: {
     canonical: "/industries",
   },
   openGraph: buildOpenGraph({
-    title: "Websites for Yoga, Clinics & Coaching Classes | techiitfly",
+    title: "Websites for Ecommerce, Yoga, Clinics & Coaching Classes | techiitfly",
     description:
-      "Websites for yoga schools, dental clinics, and coaching classes. Fast delivery, fixed prices, and direct WhatsApp lead capture.",
+      "Websites for ecommerce stores, yoga schools, dental clinics, and coaching classes. Fast delivery, fixed prices, and direct WhatsApp lead capture.",
     path: "/industries",
     image: "/og/home.png",
     alt: "Websites for Every Industry | techiitfly",
   }),
   twitter: buildTwitter({
-    title: "Websites for Yoga, Clinics & Coaching Classes | techiitfly",
+    title: "Websites for Ecommerce, Yoga, Clinics & Coaching Classes | techiitfly",
     description:
-      "Websites for yoga schools, dental clinics, and coaching classes. Fast delivery, fixed prices, and direct WhatsApp lead capture.",
+      "Websites for ecommerce stores, yoga schools, dental clinics, and coaching classes. Fast delivery, fixed prices, and direct WhatsApp lead capture.",
     image: "/og/home.png",
   }),
 };
@@ -228,6 +228,118 @@ export default function IndustriesPage() {
                   </>
                 )}
 
+                {/* For Ecommerce & Stores: Dynamic Cart & Ambient Commerce Aura */}
+                {industry.id === "ecommerce-stores" && (
+                  <>
+                    <div
+                      aria-hidden="true"
+                      style={{
+                        position: "absolute",
+                        top: "-10px",
+                        right: "-10px",
+                        width: "140px",
+                        height: "140px",
+                        pointerEvents: "none",
+                        zIndex: 0,
+                        opacity: 0.18,
+                      }}
+                    >
+                      <svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" stroke="var(--accent, #F59E0B)">
+                        <circle cx="50" cy="50" r="42" strokeWidth="1" strokeDasharray="3 4" />
+                        <circle cx="50" cy="50" r="28" strokeWidth="1.2" />
+                        <path d="M36,44 L64,44 L60,66 L40,66 Z" strokeWidth="2" strokeLinejoin="round" />
+                        <path d="M43,44 C43,36 57,36 57,44" strokeWidth="1.8" />
+                        <circle cx="44" cy="72" r="2.5" fill="var(--accent, #F59E0B)" />
+                        <circle cx="56" cy="72" r="2.5" fill="var(--accent, #F59E0B)" />
+                      </svg>
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background:
+                          "radial-gradient(circle at 85% 20%, rgba(245, 158, 11, 0.12) 0%, transparent 60%)",
+                        pointerEvents: "none",
+                        zIndex: 0,
+                      }}
+                    />
+                  </>
+                )}
+
+                {/* For Dentists & Clinics: Fresh Cyan Dental Tooth Flourish */}
+                {industry.id === "dentists-clinics" && (
+                  <>
+                    <div
+                      aria-hidden="true"
+                      style={{
+                        position: "absolute",
+                        top: "-10px",
+                        right: "-10px",
+                        width: "140px",
+                        height: "140px",
+                        pointerEvents: "none",
+                        zIndex: 0,
+                        opacity: 0.16,
+                      }}
+                    >
+                      <svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" stroke="#06B6D4">
+                        <circle cx="50" cy="50" r="42" strokeWidth="1" strokeDasharray="4 6" />
+                        <path d="M38,36 C42,26 58,26 62,36 C66,46 64,56 60,70 C58,74 54,72 52,62 C50,58 50,58 48,62 C46,72 42,74 40,70 C36,56 34,46 38,36 Z" strokeWidth="2" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background:
+                          "radial-gradient(circle at 85% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 60%)",
+                        pointerEvents: "none",
+                        zIndex: 0,
+                      }}
+                    />
+                  </>
+                )}
+
+                {/* For Coaching & Tutors: Academic Blue Cap & Compass Flourish */}
+                {industry.id === "coaching-classes" && (
+                  <>
+                    <div
+                      aria-hidden="true"
+                      style={{
+                        position: "absolute",
+                        top: "-10px",
+                        right: "-10px",
+                        width: "140px",
+                        height: "140px",
+                        pointerEvents: "none",
+                        zIndex: 0,
+                        opacity: 0.18,
+                      }}
+                    >
+                      <svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" stroke="#3B82F6">
+                        <circle cx="50" cy="50" r="42" strokeWidth="1" strokeDasharray="4 6" />
+                        <polygon points="50,32 72,42 50,52 28,42" strokeWidth="2" strokeLinejoin="round" />
+                        <path d="M36,46 L36,56 C36,62 64,62 64,56 L64,46" strokeWidth="1.5" />
+                        <line x1="68" y1="44" x2="68" y2="58" strokeWidth="1.5" />
+                        <circle cx="68" cy="60" r="2" fill="#3B82F6" />
+                      </svg>
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background:
+                          "radial-gradient(circle at 85% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 60%)",
+                        pointerEvents: "none",
+                        zIndex: 0,
+                      }}
+                    />
+                  </>
+                )}
+
                 <div style={{ position: "relative", zIndex: 1 }}>
                   <div
                     style={{
@@ -237,8 +349,22 @@ export default function IndustriesPage() {
                       fontFamily: "var(--font-geist-mono)",
                       fontSize: "0.72rem",
                       fontWeight: 700,
-                      color: industry.id === "yoga-wellness" ? "#B45309" : "var(--accent)",
-                      background: industry.id === "yoga-wellness" ? "rgba(180, 83, 9, 0.12)" : "var(--accent-dim)",
+                      color:
+                        industry.id === "yoga-wellness"
+                          ? "#B45309"
+                          : industry.id === "dentists-clinics"
+                          ? "#0891B2"
+                          : industry.id === "coaching-classes"
+                          ? "#3B82F6"
+                          : "var(--accent)",
+                      background:
+                        industry.id === "yoga-wellness"
+                          ? "rgba(180, 83, 9, 0.12)"
+                          : industry.id === "dentists-clinics"
+                          ? "rgba(8, 145, 178, 0.12)"
+                          : industry.id === "coaching-classes"
+                          ? "rgba(59, 130, 246, 0.12)"
+                          : "var(--accent-dim)",
                       padding: "4px 10px",
                       borderRadius: "999px",
                       letterSpacing: "0.06em",
@@ -246,7 +372,7 @@ export default function IndustriesPage() {
                       marginBottom: "16px",
                     }}
                   >
-                    {industry.id === "yoga-wellness" ? "🪷 Yoga & Wellness" : "Industry Focus"}
+                    {industry.badge || "Industry Focus"}
                   </div>
 
                   <h2

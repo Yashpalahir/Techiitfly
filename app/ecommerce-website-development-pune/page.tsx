@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import EcommercePuneWhatsAppButton from "@/components/ui/EcommercePuneWhatsAppButton";
+import EcommerceScrollBackdrop from "@/components/ecommerce/EcommerceScrollBackdrop";
 import { SITE } from "@/content/site";
 import { getPageDate } from "@/content/dates";
 import { buildOpenGraph, buildTwitter } from "@/lib/metadata";
@@ -232,7 +233,9 @@ export default function EcommercePunePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Header />
-      <main style={{ minHeight: "100vh", background: "var(--bg)", paddingTop: "80px" }}>
+      {/* Themed background backdrop for Ecommerce */}
+      <EcommerceScrollBackdrop />
+      <main style={{ minHeight: "100vh", background: "transparent", paddingTop: "80px", position: "relative", zIndex: 1 }}>
         {/* Hero Section */}
         <section
           style={{

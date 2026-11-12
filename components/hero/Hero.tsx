@@ -57,6 +57,14 @@ export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [hasChangedSlide, setHasChangedSlide] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsDesktop(window.innerWidth >= 1024);
+    check();
+    window.addEventListener("resize", check, { passive: true });
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   // Auto-advance slides every 4.2 seconds unless paused or mobile/prefers-reduced-motion
   useEffect(() => {
@@ -464,15 +472,17 @@ export default function Hero() {
                     {nextSlide.badge}
                   </span>
                 </div>
-                <img
-                  src={nextSlide.desktopImg}
-                  alt={nextSlide.alt}
-                  loading="lazy"
-                  decoding="async"
-                  width={500}
-                  height={289}
-                  style={{ width: "100%", height: "calc(100% - 31px)", objectFit: "cover", objectPosition: "top" }}
-                />
+                {isDesktop && (
+                  <img
+                    src={nextSlide.desktopImg}
+                    alt={nextSlide.alt}
+                    loading="lazy"
+                    decoding="async"
+                    width={500}
+                    height={289}
+                    style={{ width: "100%", height: "calc(100% - 31px)", objectFit: "cover", objectPosition: "top" }}
+                  />
+                )}
               </div>
 
               {/* 2. Front Frame: Active Live Slide with smooth keyframe animation */}
@@ -586,7 +596,7 @@ export default function Hero() {
                   <img
                     src={current.desktopImg}
                     alt={current.alt}
-                    loading="lazy"
+                    loading={activeSlide === 0 ? "eager" : "lazy"}
                     decoding="async"
                     width={500}
                     height={289}
@@ -644,7 +654,7 @@ export default function Hero() {
                   <img
                     src={current.mobileImg}
                     alt={`${current.name} mobile view`}
-                    loading="lazy"
+                    loading={activeSlide === 0 ? "eager" : "lazy"}
                     decoding="async"
                     width={150}
                     height={243}

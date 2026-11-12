@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { nextStartDate, isStartDateValid } from "@/content/availability";
 

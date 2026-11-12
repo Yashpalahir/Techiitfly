@@ -1,0 +1,125 @@
+/* Coaching Classes / Education Academy Themed Scroll Backdrop */
+
+.fixedBackdrop {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justifyContent: center;
+  user-select: none;
+}
+
+.canvasWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 760px);
+  height: min(92vw, 760px);
+  opacity: 0.14;
+  animation: academicPulse 14s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+@keyframes academicPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.96);
+    opacity: 0.12;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.03);
+    opacity: 0.16;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.98);
+    opacity: 0.13;
+  }
+}
+
+/* Floating academic particles */
+.floatingParticle {
+  position: absolute;
+  font-family: var(--font-geist-mono, monospace);
+  font-weight: 700;
+  color: var(--accent, #3B82F6);
+  opacity: 0.12;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+}
+
+.particle1 {
+  top: 18%;
+  left: 12%;
+  font-size: 2.2rem;
+  animation: floatDrift1 20s ease-in-out infinite;
+}
+
+.particle2 {
+  top: 26%;
+  right: 14%;
+  font-size: 2rem;
+  animation: floatDrift2 24s ease-in-out infinite;
+}
+
+.particle3 {
+  bottom: 22%;
+  left: 15%;
+  font-size: 1.8rem;
+  animation: floatDrift3 22s ease-in-out infinite;
+}
+
+.particle4 {
+  bottom: 28%;
+  right: 12%;
+  font-size: 2.4rem;
+  animation: floatDrift1 26s ease-in-out infinite reverse;
+}
+
+.particle5 {
+  top: 58%;
+  left: 6%;
+  font-size: 1.4rem;
+  animation: floatDrift2 18s ease-in-out infinite reverse;
+}
+
+.particle6 {
+  top: 42%;
+  right: 8%;
+  font-size: 1.6rem;
+  animation: floatDrift3 25s ease-in-out infinite;
+}
+
+@keyframes floatDrift1 {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-24px) rotate(12deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes floatDrift2 {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(22px) rotate(-10deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes floatDrift3 {
+  0% { transform: translate(0px, 0px); }
+  50% { transform: translate(-14px, -18px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .canvasWrapper,
+  .particle1,
+  .particle2,
+  .particle3,
+  .particle4,
+  .particle5,
+  .particle6 {
+    animation: none !important;
+  }
+}
