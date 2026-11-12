@@ -182,7 +182,7 @@ export default function Hero() {
               marginBottom: "28px",
             }}
           >
-            Fast, mobile-friendly websites for growing businesses, built by IIT Bombay &amp; NIT alumni founders. Fixed-price quotes and guaranteed delivery.
+            Fast, mobile-friendly websites for growing businesses, founded by IIT Bombay &amp; NIT alumni (Yashpal Baldaniya, Rahul Singh Kotiyal, Aditya Chavhan). Fixed-price quotes from ₹12,999 and guaranteed 7-day delivery.
           </p>
 
           {/* CTAs */}

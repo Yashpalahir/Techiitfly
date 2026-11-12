@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import Image from "next/image";
 import { WORK_PROJECTS, WorkProject } from "@/content/work";
 
 export default function SelectedWork() {
@@ -87,13 +84,26 @@ export default function SelectedWork() {
                     background: "var(--bg)",
                   }}
                 >
-                  <Image
-                    src={screenshotUrl}
-                    alt={`${project.title} live interface preview`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 380px"
-                    style={{ objectFit: "cover", objectPosition: "top center" }}
-                  />
+                  <picture>
+                    {project.screenshots.mobile && (
+                      <source media="(max-width: 640px)" srcSet={project.screenshots.mobile} />
+                    )}
+                    <img
+                      src={screenshotUrl}
+                      alt={`${project.title} live interface preview`}
+                      loading="lazy"
+                      decoding="async"
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        objectPosition: "top center",
+                      }}
+                    />
+                  </picture>
                 </div>
 
                 {/* Client Name & Title */}

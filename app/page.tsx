@@ -47,6 +47,14 @@ export default function Home() {
     mainEntity: [
       {
         "@type": "Question",
+        name: "Who founded and runs techiitfly?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "techiitfly was co-founded by Yashpal Baldaniya (IIT Bombay alumnus), Rahul Singh Kotiyal (IIT Bombay alumnus), and Aditya Chavhan (NIT Durgapur alumnus). We are engineers building fast, mobile-friendly websites and apps for businesses with fixed prices and a 7-day delivery guarantee.",
+        },
+      },
+      {
+        "@type": "Question",
         name: "How much does a website cost?",
         acceptedAnswer: {
           "@type": "Answer",
@@ -106,13 +114,6 @@ export default function Home() {
 
   return (
     <>
-      <link
-        rel="preload"
-        as="image"
-        href="/screenshots/yogagarhi-desktop.webp"
-        media="(min-width: 1024px)"
-        fetchPriority="high"
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

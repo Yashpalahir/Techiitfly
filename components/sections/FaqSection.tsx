@@ -5,6 +5,10 @@ interface FaqItem {
 
 const FAQS: FaqItem[] = [
   {
+    q: "Who founded and runs techiitfly?",
+    a: "techiitfly was co-founded by Yashpal Baldaniya (IIT Bombay alumnus), Rahul Singh Kotiyal (IIT Bombay alumnus), and Aditya Chavhan (NIT Durgapur alumnus). We are engineers building fast, mobile-friendly websites and apps for businesses with fixed prices and a 7-day delivery guarantee.",
+  },
+  {
     q: "How much does a website cost?",
     a: "Every project gets a fixed price after a free 15-minute call. You can also see our starting packages on the Pricing page.",
   },

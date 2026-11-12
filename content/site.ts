@@ -88,7 +88,7 @@ export const SITE: SiteConfig = {
   googleReviewCount: undefined,
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.techiitfly.com",
   metaDescription:
-    "Fast, mobile-friendly websites for growing businesses. 7-day delivery guarantee, fixed-price quotes and a free 15-minute consultation.",
+    "Website development company in Pune founded by IIT Bombay & NIT alumni (Yashpal Baldaniya, Rahul Singh Kotiyal, Aditya Chavhan). Fixed-price websites live in 7 days from ₹12,999.",
   showIitClaim: false,
   showAppServices: true,
   showItServices: false,
