@@ -205,6 +205,7 @@ export default function CompactProducts() {
 
                 <Link
                   href="/mathsy-meet"
+                  aria-label="Learn more about Mathsy Meet"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -221,6 +222,7 @@ export default function CompactProducts() {
                   }}
                 >
                   <span>Learn more</span>
+                  <span className="sr-only"> about Mathsy Meet</span>
                 </Link>
               </div>
             </div>

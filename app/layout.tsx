@@ -25,9 +25,8 @@ const geistMono = Geist_Mono({
   preload: false, // non-critical, lazy
 });
 
-import { SITE, GA_MEASUREMENT_ID } from "@/content/site";
+import { SITE } from "@/content/site";
 import Analytics from "@/components/analytics/Analytics";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { buildOpenGraph, buildTwitter } from "@/lib/metadata";
 
 export const metadata: Metadata = {
@@ -103,11 +102,14 @@ export default function RootLayout({
             __html: `(function(){var t=localStorage.getItem('theme');if(!t||t==='dark')document.documentElement.setAttribute('data-theme','dark');else document.documentElement.setAttribute('data-theme','light');})();`,
           }}
         />
+        {/* GA4 dataLayer stub (lightweight, non-render-blocking, queues events safely) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());window.gtag=gtag;`,
+          }}
+        />
       </head>
       <body className="grain">
-        {process.env.NODE_ENV === "production" && (
-          <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
-        )}
         <Analytics />
         {children}
       </body>

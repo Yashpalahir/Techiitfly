@@ -2,9 +2,12 @@
 
 import { useEffect } from "react";
 import { getStoredUtmSource } from "@/lib/tracking";
+import { GA_MEASUREMENT_ID } from "@/content/site";
 
 export default function Analytics() {
-  const ga4Id = process.env.NEXT_PUBLIC_GA4_ID;
+  const ga4Id =
+    process.env.NEXT_PUBLIC_GA4_ID ||
+    (process.env.NODE_ENV === "production" ? GA_MEASUREMENT_ID : undefined);
   const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 
@@ -25,20 +28,19 @@ export default function Analytics() {
       // 1. Google tag (GA4 and/or Google Ads)
       const primaryGoogleId = ga4Id || adsId;
       if (primaryGoogleId) {
-        const script = document.createElement("script");
-        script.async = true;
-        script.src = `https://www.googletagmanager.com/gtag/js?id=${primaryGoogleId}`;
-        document.head.appendChild(script);
-
         window.dataLayer = window.dataLayer || [];
         function gtag(...args: unknown[]) {
           window.dataLayer?.push(args);
         }
         (window as unknown as { gtag: typeof gtag }).gtag = gtag;
-        gtag("js", new Date());
 
         if (ga4Id) gtag("config", ga4Id);
         if (adsId) gtag("config", adsId);
+
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${primaryGoogleId}`;
+        document.head.appendChild(script);
       }
 
       // 2. Meta Pixel
@@ -66,7 +68,7 @@ export default function Analytics() {
       }
     };
 
-    // Load after user interaction or idle callback
+    // Load on user interaction (scroll, click, touch, mouse move, keypress)
     const events = ["scroll", "click", "touchstart", "mousemove", "keydown"];
     const trigger = () => {
       loadScripts();
@@ -75,15 +77,26 @@ export default function Analytics() {
 
     events.forEach((evt) => window.addEventListener(evt, trigger, { passive: true, once: true }));
 
-    // Fallback: idle callback or 4-second timeout
-    if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(() => setTimeout(loadScripts, 3000));
-    } else {
-      setTimeout(loadScripts, 4000);
+    // Fallback: load after initial paint when browser is idle, or within 2.5 seconds
+    let timerId: ReturnType<typeof setTimeout> | undefined;
+    let idleId: number | undefined;
+
+    if (typeof window !== "undefined") {
+      if ("requestIdleCallback" in window) {
+        idleId = (window as Window).requestIdleCallback(() => {
+          timerId = setTimeout(loadScripts, 1500);
+        });
+      } else {
+        timerId = setTimeout(loadScripts, 2500);
+      }
     }
 
     return () => {
       events.forEach((evt) => window.removeEventListener(evt, trigger));
+      if (timerId) clearTimeout(timerId);
+      if (idleId && "cancelIdleCallback" in window) {
+        (window as Window).cancelIdleCallback(idleId);
+      }
     };
   }, [ga4Id, adsId, pixelId]);
 
