@@ -9,11 +9,12 @@ import { buildOpenGraph, buildTwitter } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Website Maintenance Services in India | ₹2,500/month",
+    absolute: "Website Maintenance Company in India | From ₹2,500/month",
   },
   description:
-    "Website maintenance from ₹2,500 per month: security updates, backups, speed checks and content edits. Month-to-month billing. Get a quote on WhatsApp.",
+    "Website maintenance company in India: security updates, backups, speed checks and content edits from ₹2,500/month. Month-to-month billing.",
   keywords: [
+    "website maintenance company in india",
     "website maintenance services",
     "website maintenance india",
     "website maintenance cost",
@@ -24,22 +25,30 @@ export const metadata: Metadata = {
     canonical: "/website-maintenance-services",
   },
   openGraph: buildOpenGraph({
-    title: "Website Maintenance Services in India | ₹2,500/month",
+    title: "Website Maintenance Company in India | From ₹2,500/month",
     description:
-      "Website maintenance from ₹2,500 per month: security updates, backups, speed checks and content edits. Month-to-month billing. Get a quote on WhatsApp.",
+      "Website maintenance company in India: security updates, backups, speed checks and content edits from ₹2,500/month. Month-to-month billing.",
     path: "/website-maintenance-services",
     image: "/og/pricing.png",
-    alt: "Website Maintenance Services in India — techiitfly",
+    alt: "Website Maintenance Company in India — techiitfly",
   }),
   twitter: buildTwitter({
-    title: "Website Maintenance Services in India | ₹2,500/month",
+    title: "Website Maintenance Company in India | From ₹2,500/month",
     description:
-      "Website maintenance from ₹2,500 per month: security updates, backups, speed checks and content edits. Month-to-month billing. Get a quote on WhatsApp.",
+      "Website maintenance company in India: security updates, backups, speed checks and content edits from ₹2,500/month. Month-to-month billing.",
     image: "/og/pricing.png",
   }),
 };
 
 const FAQ_ITEMS = [
+  {
+    q: "What is website maintenance?",
+    a: "Website maintenance means keeping a website secure, fast and up to date after launch. It includes security updates, backups, speed checks and content edits.",
+  },
+  {
+    q: "What does a website maintenance company do?",
+    a: "A website maintenance company looks after your website so you do not have to. At techiitfly this covers regular security patches, backups, speed checks, fast turnaround for design and text updates, technical support, and domain and hosting care.",
+  },
   {
     q: "How much does website maintenance cost?",
     a: "Website maintenance costs ₹2,500 per month, excluding GST.",
@@ -71,7 +80,7 @@ export default function WebsiteMaintenanceServicesPage() {
     name: "Website Maintenance Services",
     serviceType: "Website Maintenance",
     description:
-      "Website maintenance from ₹2,500 per month: security updates, backups, speed checks and content edits. Month-to-month billing. Get a quote on WhatsApp.",
+      "Website maintenance company in India: security updates, backups, speed checks and content edits from ₹2,500/month. Month-to-month billing.",
     provider: {
       "@type": "ProfessionalService",
       "@id": "https://www.techiitfly.com/#organization",
@@ -203,7 +212,7 @@ export default function WebsiteMaintenanceServicesPage() {
               marginBottom: "16px",
             }}
           >
-            Website maintenance from ₹2,500 per month covers security updates, backups, speed checks and content edits, so your website stays fast, safe and up to date. It is billed month to month. Prices exclude GST.
+            techiitfly is a website maintenance company in India. Website maintenance services start at ₹2,500 per month and cover security updates, backups, speed checks and content edits, billed month to month. Prices exclude GST.
           </p>
 
           <p
@@ -379,6 +388,106 @@ export default function WebsiteMaintenanceServicesPage() {
                 </li>
               ))}
             </ul>
+          </section>
+
+          {/* Section: Website maintenance checklist */}
+          <section style={{ marginBottom: "56px" }}>
+            <h2
+              style={{
+                fontFamily: "var(--font-instrument-serif)",
+                fontSize: "clamp(1.9rem, 3.8vw, 2.7rem)",
+                fontWeight: 400,
+                color: "var(--text)",
+                marginBottom: "24px",
+              }}
+            >
+              Website maintenance checklist
+            </h2>
+
+            <div
+              style={{
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                borderRadius: "var(--radius-lg, 12px)",
+                padding: "32px 28px",
+                boxShadow: "var(--card-shadow)",
+              }}
+            >
+              <ul
+                style={{
+                  listStyle: "none",
+                  margin: 0,
+                  padding: 0,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "16px",
+                }}
+              >
+                {[
+                  {
+                    title: "Security updates:",
+                    desc: "keep the website's software and libraries up to date.",
+                  },
+                  {
+                    title: "Backups:",
+                    desc: "keep a recent copy so the site can be restored if something breaks.",
+                  },
+                  {
+                    title: "Speed:",
+                    desc: "check how fast pages load on mobile.",
+                  },
+                  {
+                    title: "Content:",
+                    desc: "update prices, offers and contact details when they change.",
+                  },
+                  {
+                    title: "Forms and buttons:",
+                    desc: "test that contact forms, links and WhatsApp buttons work.",
+                  },
+                  {
+                    title: "Domain and hosting:",
+                    desc: "keep domain, hosting and SSL renewed on time.",
+                  },
+                ].map((item, idx) => (
+                  <li
+                    key={idx}
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "14px",
+                      fontFamily: "var(--font-geist-sans)",
+                      fontSize: "1rem",
+                      lineHeight: 1.6,
+                      color: "var(--muted)",
+                    }}
+                  >
+                    <span
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "22px",
+                        height: "22px",
+                        borderRadius: "50%",
+                        background: "var(--accent-dim)",
+                        color: "var(--accent)",
+                        fontSize: "0.78rem",
+                        fontWeight: 800,
+                        flexShrink: 0,
+                        marginTop: "2px",
+                      }}
+                      aria-hidden="true"
+                    >
+                      ✓
+                    </span>
+                    <div>
+                      <strong style={{ color: "var(--text)", fontWeight: 700 }}>{item.title}</strong>{" "}
+                      <span>{item.desc}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </section>
 
           {/* Section: Maintenance plan price */}
