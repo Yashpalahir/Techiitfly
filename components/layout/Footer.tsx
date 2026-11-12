@@ -125,6 +125,12 @@ export default function Footer() {
             Website Maintenance Services
           </Link>
           <Link
+            href="/about"
+            style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", textDecoration: "none" }}
+          >
+            About
+          </Link>
+          <Link
             href="/industries"
             style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", textDecoration: "none" }}
           >

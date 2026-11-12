@@ -33,6 +33,8 @@ export default function ServicesSection() {
       ],
       ctaText: "Get a quote",
       ctaHref: getConsultUrl(),
+      secondaryHref: "/website-development-pune",
+      secondaryText: "Web design in Pune →",
       isExternal: true,
     },
     {
