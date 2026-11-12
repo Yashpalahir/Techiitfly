@@ -1,0 +1,132 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   YogaFixedZenBackdrop — Fixed Meditative Viewport Canvas
+   Meditating Yogi in Dhyan Mudra + Scroll-Accelerated Rotating Sacred Mandala
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.fixedBackdrop {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 0.12;
+  transition: opacity 0.4s ease;
+}
+
+:global([data-theme="dark"]) .fixedBackdrop,
+:global(html:not([data-theme="light"])) .fixedBackdrop {
+  opacity: 0.14;
+}
+
+.canvasWrapper {
+  position: relative;
+  width: min(860px, 92vw);
+  height: min(860px, 92vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Meditator Pranayama Breathing Float ── */
+.yogiBody {
+  transform-origin: 250px 320px;
+  transform-box: view-box;
+  animation: yogiPranayama 6s ease-in-out infinite;
+}
+
+/* ── Concentric Aura Breathing Waves ── */
+.auraRing1 {
+  transform-origin: 250px 240px;
+  transform-box: view-box;
+  animation: auraPulseWave 6s ease-in-out infinite;
+}
+
+.auraRing2 {
+  transform-origin: 250px 240px;
+  transform-box: view-box;
+  animation: auraPulseWave 6s ease-in-out infinite 1.8s;
+}
+
+/* ── Anahata Heart Chakra Glow Pulse ── */
+.heartGlow {
+  transform-origin: 250px 214px;
+  transform-box: view-box;
+  animation: heartPulse 3s ease-in-out infinite;
+}
+
+/* ── Floating Prana Particles ── */
+.particle1 { animation: floatPrana 6.5s ease-in-out infinite 0s; }
+.particle2 { animation: floatPrana 7.2s ease-in-out infinite 1.4s; }
+.particle3 { animation: floatPrana 5.8s ease-in-out infinite 2.6s; }
+.particle4 { animation: floatPrana 6.8s ease-in-out infinite 3.8s; }
+.particle5 { animation: floatPrana 8s ease-in-out infinite 0.8s; }
+
+/* ── Keyframes ── */
+@keyframes yogiPranayama {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.014);
+  }
+}
+
+@keyframes auraPulseWave {
+  0%, 100% {
+    transform: scale(0.94);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.45;
+  }
+}
+
+@keyframes heartPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+  }
+}
+
+@keyframes floatPrana {
+  0% {
+    transform: translateY(0) scale(0.7);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.85;
+  }
+  70% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-55px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* ── Reduced Motion Accessibility ── */
+@media (prefers-reduced-motion: reduce) {
+  .yogiBody,
+  .auraRing1,
+  .auraRing2,
+  .heartGlow,
+  .particle1,
+  .particle2,
+  .particle3,
+  .particle4,
+  .particle5 {
+    animation: none !important;
+    transform: none !important;
+  }
+}

@@ -259,6 +259,30 @@ export default function StandaloneContactPage() {
             </div>
           </div>
 
+          {/* Follow us on Instagram */}
+          <p
+            style={{
+              fontFamily: "var(--font-geist-sans)",
+              fontSize: "0.88rem",
+              color: "var(--muted)",
+              marginTop: "-16px",
+              marginBottom: "30px",
+            }}
+          >
+            <a
+              href={SITE.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "var(--accent)",
+                textDecoration: "underline",
+                textUnderlineOffset: "3px",
+              }}
+            >
+              Follow us on Instagram ↗
+            </a>
+          </p>
+
           {/* Already have a quote banner */}
           <div
             style={{

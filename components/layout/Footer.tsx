@@ -253,6 +253,14 @@ export default function Footer() {
           >
             LinkedIn
           </a>
+          <a
+            href={SITE.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", textDecoration: "none" }}
+          >
+            Instagram
+          </a>
           <span style={{ fontFamily: "var(--font-geist-mono)", fontSize: "0.74rem", color: "var(--muted)", marginTop: "4px" }}>
             ● {SITE.replyHours}
           </span>

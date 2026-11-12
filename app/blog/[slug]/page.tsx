@@ -821,6 +821,29 @@ export default async function BlogPostPage({
                 <span>→</span>
               </Link>
             </div>
+
+            <p
+              style={{
+                fontFamily: "var(--font-geist-sans)",
+                fontSize: "0.9rem",
+                color: "var(--muted)",
+                margin: "20px 0 0",
+                textAlign: "center",
+              }}
+            >
+              <a
+                href={SITE.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: "var(--accent)",
+                  textDecoration: "underline",
+                  textUnderlineOffset: "3px",
+                }}
+              >
+                Follow us on Instagram for more tips
+              </a>
+            </p>
           </div>
         </article>
       </main>

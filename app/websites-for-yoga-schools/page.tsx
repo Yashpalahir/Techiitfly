@@ -7,6 +7,7 @@ import { SITE, getConsultUrl, getWhatsAppUrl } from "@/content/site";
 import { getPageDate } from "@/content/dates";
 import { PROCESS_STEPS } from "@/content/process";
 import { buildOpenGraph, buildTwitter } from "@/lib/metadata";
+import YogaFixedZenBackdrop from "@/components/yoga/YogaFixedZenBackdrop";
 import styles from "./yoga.module.css";
 
 export const metadata: Metadata = {
@@ -32,75 +33,7 @@ export const metadata: Metadata = {
   }),
 };
 
-// ─── Original Inline SVG: Sacred Geometry Lotus / Mandala Watermark ───────────
-function LotusMandalaWatermark({
-  size = 420,
-  top = "50%",
-  left = "50%",
-  opacity = 0.045,
-}: {
-  size?: number;
-  top?: string;
-  left?: string;
-  opacity?: number;
-}) {
-  return (
-    <svg
-      viewBox="0 0 400 400"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      style={{
-        position: "absolute",
-        top,
-        left,
-        transform: "translate(-50%, -50%)",
-        width: `${size}px`,
-        height: `${size}px`,
-        maxWidth: "92vw",
-        pointerEvents: "none",
-        zIndex: 0,
-        opacity,
-        color: "var(--yoga-sage)",
-      }}
-    >
-      <circle cx="200" cy="200" r="192" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
-      <circle cx="200" cy="200" r="150" stroke="currentColor" strokeWidth="1" />
-      <circle cx="200" cy="200" r="100" stroke="currentColor" strokeWidth="1" />
-      <circle cx="200" cy="200" r="48" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
-      <circle cx="200" cy="200" r="8" fill="currentColor" opacity="0.35" />
 
-      {/* 8 Outer Lotus Petals */}
-      {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
-        <g key={`outer-${angle}`} transform={`rotate(${angle} 200 200)`}>
-          <path
-            d="M 200,45 C 235,110 235,160 200,200 C 165,160 165,110 200,45 Z"
-            stroke="currentColor"
-            strokeWidth="1.2"
-          />
-          <path
-            d="M 200,85 C 218,125 218,165 200,200 C 182,165 182,125 200,85 Z"
-            stroke="currentColor"
-            strokeWidth="0.8"
-            opacity="0.65"
-          />
-        </g>
-      ))}
-
-      {/* 8 Inner Interlacing Petals */}
-      {[22.5, 67.5, 112.5, 157.5, 202.5, 247.5, 292.5, 337.5].map((angle) => (
-        <g key={`inner-${angle}`} transform={`rotate(${angle} 200 200)`}>
-          <path
-            d="M 200,75 C 222,125 222,170 200,200 C 178,170 178,125 200,75 Z"
-            stroke="currentColor"
-            strokeWidth="0.9"
-            opacity="0.5"
-          />
-        </g>
-      ))}
-    </svg>
-  );
-}
 
 // ─── Gentle Organic Wave Divider ──────────────────────────────────────────────
 function OrganicDivider() {
@@ -339,8 +272,11 @@ export default function YogaSchoolsPage() {
       />
       <Header />
       <div className={styles.yogaTheme}>
-        <main style={{ minHeight: "100vh", paddingTop: "80px", position: "relative" }}>
-          {/* Subtle Ambient Radial Gradients */}
+        {/* Fixed Sticky Background: Meditating Yogi in Dhyan Mudra + Scroll-Accelerated Rotating Sacred Mandala */}
+        <YogaFixedZenBackdrop />
+
+        <main style={{ minHeight: "100vh", paddingTop: "80px", position: "relative", zIndex: 1 }}>
+          {/* Subtle Ambient Sage Radial Gradient (Zero Yellow/Saffron glare) */}
           <div
             aria-hidden="true"
             style={{
@@ -348,10 +284,10 @@ export default function YogaSchoolsPage() {
               top: "80px",
               left: "50%",
               transform: "translateX(-50%)",
-              width: "min(100vw, 1080px)",
-              height: "440px",
+              width: "min(100vw, 1000px)",
+              height: "400px",
               background:
-                "radial-gradient(circle at 50% 25%, var(--yoga-sage-dim) 0%, var(--yoga-saffron-dim) 40%, transparent 72%)",
+                "radial-gradient(circle at 50% 25%, var(--yoga-sage-dim) 0%, transparent 70%)",
               pointerEvents: "none",
               zIndex: 0,
             }}
@@ -368,9 +304,6 @@ export default function YogaSchoolsPage() {
               zIndex: 1,
             }}
           >
-            {/* Ambient Lotus Mandala Behind Hero */}
-            <LotusMandalaWatermark size={460} top="48%" left="50%" opacity={0.05} />
-
             {/* Breadcrumb Navigation */}
             <nav
               aria-label="Breadcrumb"
@@ -652,9 +585,6 @@ export default function YogaSchoolsPage() {
               margin: "0 auto",
             }}
           >
-            {/* Ambient Watermark */}
-            <LotusMandalaWatermark size={400} top="30%" left="85%" opacity={0.035} />
-
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
               <span className={styles.yogaBadge}>
                 <span>✨</span>
@@ -1352,8 +1282,6 @@ export default function YogaSchoolsPage() {
               textAlign: "center",
             }}
           >
-            <LotusMandalaWatermark size={380} top="50%" left="50%" opacity={0.04} />
-
             <div style={{ position: "relative", zIndex: 1 }}>
               <span className={styles.yogaBadge} style={{ marginBottom: "16px" }}>
                 <span>🪷</span>

@@ -6,6 +6,7 @@ export interface SiteConfig {
   location: string;
   email: string;
   contactEmail: string;
+  instagramUrl: string;
   linkedinUrl: string;
   socialProfiles: string[];
   structuredPhone: string;
@@ -59,6 +60,7 @@ export const SITE: SiteConfig = {
   location: "Pune, India",
   email: "contact@techiitfly.com",
   contactEmail: "contact@techiitfly.com",
+  instagramUrl: "https://www.instagram.com/techiitfly/",
   linkedinUrl: "https://www.linkedin.com/company/techiitfly",
   socialProfiles: [
     "https://www.instagram.com/techiitfly/",

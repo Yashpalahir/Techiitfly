@@ -6,6 +6,7 @@ import { INDUSTRIES } from "@/content/industries";
 import { SITE, getConsultUrl, getWhatsAppUrl } from "@/content/site";
 import { getPageDate } from "@/content/dates";
 import { buildOpenGraph, buildTwitter } from "@/lib/metadata";
+import YogaZenAnimation from "@/components/yoga/YogaZenAnimation";
 
 export const metadata: Metadata = {
   title: "Websites for Yoga, Clinics & Coaching Classes",
@@ -191,9 +192,43 @@ export default function IndustriesPage() {
                   textDecoration: "none",
                   transition: "all 0.2s ease",
                   boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
+                  position: "relative",
+                  overflow: "hidden",
                 }}
               >
-                <div>
+                {/* For Yoga & Wellness: Delightful animated Dhyan Mudra + Rotating Mandala flourish */}
+                {industry.id === "yoga-wellness" && (
+                  <>
+                    <div
+                      aria-hidden="true"
+                      style={{
+                        position: "absolute",
+                        top: "-20px",
+                        right: "-20px",
+                        width: "160px",
+                        height: "160px",
+                        pointerEvents: "none",
+                        zIndex: 0,
+                      }}
+                    >
+                      <YogaZenAnimation variant="card" size={160} opacity={0.9} />
+                    </div>
+                    {/* Subtle warm zen aura inside card */}
+                    <div
+                      aria-hidden="true"
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background:
+                          "radial-gradient(circle at 85% 20%, rgba(245, 158, 11, 0.08) 0%, rgba(124, 169, 139, 0.06) 40%, transparent 70%)",
+                        pointerEvents: "none",
+                        zIndex: 0,
+                      }}
+                    />
+                  </>
+                )}
+
+                <div style={{ position: "relative", zIndex: 1 }}>
                   <div
                     style={{
                       display: "inline-flex",
@@ -202,8 +237,8 @@ export default function IndustriesPage() {
                       fontFamily: "var(--font-geist-mono)",
                       fontSize: "0.72rem",
                       fontWeight: 700,
-                      color: "var(--accent)",
-                      background: "var(--accent-dim)",
+                      color: industry.id === "yoga-wellness" ? "#B45309" : "var(--accent)",
+                      background: industry.id === "yoga-wellness" ? "rgba(180, 83, 9, 0.12)" : "var(--accent-dim)",
                       padding: "4px 10px",
                       borderRadius: "999px",
                       letterSpacing: "0.06em",
@@ -211,7 +246,7 @@ export default function IndustriesPage() {
                       marginBottom: "16px",
                     }}
                   >
-                    Industry Focus
+                    {industry.id === "yoga-wellness" ? "🪷 Yoga & Wellness" : "Industry Focus"}
                   </div>
 
                   <h2

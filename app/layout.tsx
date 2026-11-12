@@ -80,8 +80,8 @@ export default function RootLayout({
     telephone: "+91 93739 17738",
     areaServed: "Pune",
     sameAs: [
-      "https://www.instagram.com/techiitfly/",
-      "https://www.linkedin.com/company/techiitfly",
+      SITE.instagramUrl,
+      SITE.linkedinUrl,
     ],
   };
 
