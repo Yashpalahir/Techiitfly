@@ -127,6 +127,7 @@ export default function Home() {
         rel="preload"
         as="image"
         href="/screenshots/yogagarhi-desktop.webp"
+        media="(min-width: 1024px)"
         fetchPriority="high"
       />
       <script

@@ -143,7 +143,7 @@ export default function Hero() {
         }}
       >
         {/* Left Column: Headline, CTAs, Services positioning */}
-        <div style={{ maxWidth: "580px" }}>
+        <div className="hero-left-col" style={{ maxWidth: "580px" }}>
           {/* Eyebrow */}
           <p className="section-label" style={{ marginBottom: "16px" }}>
             techiitfly · Pune, India
@@ -586,7 +586,7 @@ export default function Hero() {
                   <img
                     src={current.desktopImg}
                     alt={current.alt}
-                    fetchPriority="high"
+                    loading="lazy"
                     decoding="async"
                     width={500}
                     height={289}
