@@ -1427,6 +1427,25 @@ export default function PricingClient() {
               </motion.div>
             ))}
           </div>
+
+          <div style={{ marginTop: "18px" }}>
+            <Link
+              href="/website-maintenance-services"
+              style={{
+                fontFamily: "var(--font-geist-sans)",
+                fontSize: "0.92rem",
+                color: "var(--accent)",
+                textDecoration: "underline",
+                textUnderlineOffset: "3px",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+              }}
+            >
+              <span>Website maintenance services</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </section>
 
         {/* ── How it works ─────────────────────────────────────────────── */}

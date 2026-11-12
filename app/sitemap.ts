@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/pricing",
     "/website-cost-india",
+    "/website-maintenance-services",
     "/industries",
     "/blog",
     "/mathsy-meet",

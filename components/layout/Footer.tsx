@@ -119,6 +119,12 @@ export default function Footer() {
             Website Cost in India
           </Link>
           <Link
+            href="/website-maintenance-services"
+            style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", textDecoration: "none" }}
+          >
+            Website Maintenance Services
+          </Link>
+          <Link
             href="/industries"
             style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", textDecoration: "none" }}
           >

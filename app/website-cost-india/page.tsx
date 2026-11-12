@@ -338,49 +338,149 @@ export default function WebsiteCostIndiaPage() {
                 fontSize: "clamp(1.9rem, 3.8vw, 2.7rem)",
                 fontWeight: 400,
                 color: "var(--text)",
-                marginBottom: "24px",
+                marginBottom: "28px",
               }}
             >
               What is included in each package
             </h2>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+            <div
+              className="grid grid-cols-1 md:grid-cols-3 gap-5"
+              style={{ alignItems: "stretch" }}
+            >
               {/* Starter */}
               <div
                 style={{
                   background: "var(--surface)",
                   border: "1px solid var(--border)",
                   borderRadius: "var(--radius-lg, 12px)",
-                  padding: "28px 24px",
+                  padding: "32px 24px",
+                  display: "flex",
+                  flexDirection: "column",
+                  boxShadow: "var(--card-shadow)",
+                  position: "relative",
+                  transition: "transform 0.2s ease, box-shadow 0.2s ease",
                 }}
               >
-                <h3
+                <div style={{ marginBottom: "18px" }}>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-geist-mono)",
+                      fontSize: "0.74rem",
+                      fontWeight: 700,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                      color: "var(--muted)",
+                      marginBottom: "6px",
+                    }}
+                  >
+                    Starter Package
+                  </div>
+                  <h3
+                    style={{
+                      fontFamily: "var(--font-geist-sans)",
+                      fontSize: "1.35rem",
+                      fontWeight: 700,
+                      color: "var(--text)",
+                      margin: 0,
+                    }}
+                  >
+                    Starter
+                    <span className="sr-only"> (from ₹12,999)</span>
+                  </h3>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "baseline",
+                      gap: "6px",
+                      marginTop: "10px",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "var(--font-geist-mono)",
+                        fontSize: "0.85rem",
+                        color: "var(--muted)",
+                        fontWeight: 500,
+                      }}
+                    >
+                      from
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "2rem",
+                        fontWeight: 800,
+                        color: "var(--accent)",
+                        letterSpacing: "-0.02em",
+                        lineHeight: 1,
+                      }}
+                    >
+                      ₹12,999
+                    </span>
+                  </div>
+                </div>
+
+                <div
                   style={{
-                    fontFamily: "var(--font-geist-sans)",
-                    fontSize: "1.25rem",
-                    fontWeight: 700,
-                    color: "var(--text)",
-                    marginTop: 0,
-                    marginBottom: "16px",
+                    height: "1px",
+                    background: "var(--border)",
+                    marginBottom: "20px",
                   }}
-                >
-                  Starter (from ₹12,999)
-                </h3>
+                />
+
                 <ul
                   style={{
+                    listStyle: "none",
                     margin: 0,
-                    paddingLeft: "20px",
-                    fontFamily: "var(--font-geist-sans)",
-                    fontSize: "0.98rem",
-                    lineHeight: 1.7,
-                    color: "var(--muted)",
+                    padding: 0,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "13px",
+                    flex: 1,
                   }}
                 >
-                  <li>Up to 5 pages with a template-based design</li>
-                  <li>Mobile-friendly layout</li>
-                  <li>Contact form and WhatsApp button</li>
-                  <li>Basic SEO setup and Google Maps</li>
-                  <li>1 round of design changes and 7 days of free support</li>
+                  {[
+                    "Up to 5 pages with a template-based design",
+                    "Mobile-friendly layout",
+                    "Contact form and WhatsApp button",
+                    "Basic SEO setup and Google Maps",
+                    "1 round of design changes and 7 days of free support",
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "10px",
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "0.92rem",
+                        lineHeight: 1.5,
+                        color: "var(--text)",
+                      }}
+                    >
+                      <span
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          width: "18px",
+                          height: "18px",
+                          borderRadius: "50%",
+                          background: "var(--accent-dim)",
+                          color: "var(--accent)",
+                          fontSize: "0.72rem",
+                          fontWeight: 800,
+                          flexShrink: 0,
+                          marginTop: "2px",
+                        }}
+                        aria-hidden="true"
+                      >
+                        ✓
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -388,37 +488,154 @@ export default function WebsiteCostIndiaPage() {
               <div
                 style={{
                   background: "var(--surface)",
-                  border: "1.5px solid var(--border)",
+                  border: "1.5px solid var(--accent)",
                   borderRadius: "var(--radius-lg, 12px)",
-                  padding: "28px 24px",
+                  padding: "32px 24px",
+                  display: "flex",
+                  flexDirection: "column",
+                  boxShadow: "var(--card-hover-shadow)",
+                  position: "relative",
+                  transition: "transform 0.2s ease, box-shadow 0.2s ease",
                 }}
               >
-                <h3
+                <span
                   style={{
-                    fontFamily: "var(--font-geist-sans)",
-                    fontSize: "1.25rem",
+                    position: "absolute",
+                    top: "-12px",
+                    left: "22px",
+                    background: "var(--accent)",
+                    color: "var(--primary-btn-text, #0e0d0b)",
+                    fontSize: "10.5px",
                     fontWeight: 700,
-                    color: "var(--text)",
-                    marginTop: 0,
-                    marginBottom: "16px",
+                    padding: "3px 12px",
+                    borderRadius: "999px",
+                    fontFamily: "var(--font-geist-mono)",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.25)",
                   }}
                 >
-                  Business (from ₹29,999)
-                </h3>
+                  Most Popular
+                </span>
+
+                <div style={{ marginBottom: "18px" }}>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-geist-mono)",
+                      fontSize: "0.74rem",
+                      fontWeight: 700,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                      color: "var(--accent)",
+                      marginBottom: "6px",
+                    }}
+                  >
+                    Business Package
+                  </div>
+                  <h3
+                    style={{
+                      fontFamily: "var(--font-geist-sans)",
+                      fontSize: "1.35rem",
+                      fontWeight: 700,
+                      color: "var(--text)",
+                      margin: 0,
+                    }}
+                  >
+                    Business
+                    <span className="sr-only"> (from ₹29,999)</span>
+                  </h3>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "baseline",
+                      gap: "6px",
+                      marginTop: "10px",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "var(--font-geist-mono)",
+                        fontSize: "0.85rem",
+                        color: "var(--muted)",
+                        fontWeight: 500,
+                      }}
+                    >
+                      from
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "2rem",
+                        fontWeight: 800,
+                        color: "var(--accent)",
+                        letterSpacing: "-0.02em",
+                        lineHeight: 1,
+                      }}
+                    >
+                      ₹29,999
+                    </span>
+                  </div>
+                </div>
+
+                <div
+                  style={{
+                    height: "1px",
+                    background: "var(--border)",
+                    marginBottom: "20px",
+                  }}
+                />
+
                 <ul
                   style={{
+                    listStyle: "none",
                     margin: 0,
-                    paddingLeft: "20px",
-                    fontFamily: "var(--font-geist-sans)",
-                    fontSize: "0.98rem",
-                    lineHeight: 1.7,
-                    color: "var(--muted)",
+                    padding: 0,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "13px",
+                    flex: 1,
                   }}
                 >
-                  <li>Up to 10 pages with a custom design</li>
-                  <li>Admin panel so you can edit content yourself</li>
-                  <li>Basic SEO setup, Google Analytics and Google Maps</li>
-                  <li>2 rounds of design changes and 30 days of free support</li>
+                  {[
+                    "Up to 10 pages with a custom design",
+                    "Admin panel so you can edit content yourself",
+                    "Basic SEO setup, Google Analytics and Google Maps",
+                    "2 rounds of design changes and 30 days of free support",
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "10px",
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "0.92rem",
+                        lineHeight: 1.5,
+                        color: "var(--text)",
+                      }}
+                    >
+                      <span
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          width: "18px",
+                          height: "18px",
+                          borderRadius: "50%",
+                          background: "var(--accent-dim)",
+                          color: "var(--accent)",
+                          fontSize: "0.72rem",
+                          fontWeight: 800,
+                          flexShrink: 0,
+                          marginTop: "2px",
+                        }}
+                        aria-hidden="true"
+                      >
+                        ✓
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -428,36 +645,133 @@ export default function WebsiteCostIndiaPage() {
                   background: "var(--surface)",
                   border: "1px solid var(--border)",
                   borderRadius: "var(--radius-lg, 12px)",
-                  padding: "28px 24px",
+                  padding: "32px 24px",
+                  display: "flex",
+                  flexDirection: "column",
+                  boxShadow: "var(--card-shadow)",
+                  position: "relative",
+                  transition: "transform 0.2s ease, box-shadow 0.2s ease",
                 }}
               >
-                <h3
+                <div style={{ marginBottom: "18px" }}>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-geist-mono)",
+                      fontSize: "0.74rem",
+                      fontWeight: 700,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                      color: "var(--muted)",
+                      marginBottom: "6px",
+                    }}
+                  >
+                    Premium Package
+                  </div>
+                  <h3
+                    style={{
+                      fontFamily: "var(--font-geist-sans)",
+                      fontSize: "1.35rem",
+                      fontWeight: 700,
+                      color: "var(--text)",
+                      margin: 0,
+                    }}
+                  >
+                    Premium
+                    <span className="sr-only"> (from ₹59,999)</span>
+                  </h3>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "baseline",
+                      gap: "6px",
+                      marginTop: "10px",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "var(--font-geist-mono)",
+                        fontSize: "0.85rem",
+                        color: "var(--muted)",
+                        fontWeight: 500,
+                      }}
+                    >
+                      from
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "2rem",
+                        fontWeight: 800,
+                        color: "var(--accent)",
+                        letterSpacing: "-0.02em",
+                        lineHeight: 1,
+                      }}
+                    >
+                      ₹59,999
+                    </span>
+                  </div>
+                </div>
+
+                <div
                   style={{
-                    fontFamily: "var(--font-geist-sans)",
-                    fontSize: "1.25rem",
-                    fontWeight: 700,
-                    color: "var(--text)",
-                    marginTop: 0,
-                    marginBottom: "16px",
+                    height: "1px",
+                    background: "var(--border)",
+                    marginBottom: "20px",
                   }}
-                >
-                  Premium (from ₹59,999)
-                </h3>
+                />
+
                 <ul
                   style={{
+                    listStyle: "none",
                     margin: 0,
-                    paddingLeft: "20px",
-                    fontFamily: "var(--font-geist-sans)",
-                    fontSize: "0.98rem",
-                    lineHeight: 1.7,
-                    color: "var(--muted)",
+                    padding: 0,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "13px",
+                    flex: 1,
                   }}
                 >
-                  <li>15+ pages or an online store</li>
-                  <li>Payment gateway or booking system</li>
-                  <li>Custom design with animations and advanced SEO</li>
-                  <li>Admin dashboard, speed and security hardening</li>
-                  <li>2 rounds of design changes and 90 days of free support</li>
+                  {[
+                    "15+ pages or an online store",
+                    "Payment gateway or booking system",
+                    "Custom design with animations and advanced SEO",
+                    "Admin dashboard, speed and security hardening",
+                    "2 rounds of design changes and 90 days of free support",
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "10px",
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "0.92rem",
+                        lineHeight: 1.5,
+                        color: "var(--text)",
+                      }}
+                    >
+                      <span
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          width: "18px",
+                          height: "18px",
+                          borderRadius: "50%",
+                          background: "var(--accent-dim)",
+                          color: "var(--accent)",
+                          fontSize: "0.72rem",
+                          fontWeight: 800,
+                          flexShrink: 0,
+                          marginTop: "2px",
+                        }}
+                        aria-hidden="true"
+                      >
+                        ✓
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

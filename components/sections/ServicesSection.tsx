@@ -83,6 +83,8 @@ export default function ServicesSection() {
     ctaHref: `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
       "Hi techiitfly, I'd like to discuss website maintenance & support."
     )}`,
+    secondaryHref: "/website-maintenance-services",
+    secondaryText: "Website maintenance services →",
     isExternal: true,
   });
 
