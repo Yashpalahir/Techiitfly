@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/pricing",
     "/website-cost-india",
     "/website-maintenance-services",
+    "/ecommerce-website-development-pune",
     "/about",
     "/industries",
     "/blog",

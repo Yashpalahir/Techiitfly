@@ -206,6 +206,12 @@ export default function Footer() {
           >
             Website Development Pune
           </Link>
+          <Link
+            href="/ecommerce-website-development-pune"
+            style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.88rem", color: "var(--muted)", textDecoration: "none" }}
+          >
+            Ecommerce Website Development Pune
+          </Link>
           {INDUSTRIES.map((ind) => (
             <Link
               key={ind.href}

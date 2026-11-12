@@ -388,6 +388,24 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
               Terms
             </Link>
           </p>
+          {plan.name === "Premium" && (
+            <p
+              style={{
+                fontFamily: "var(--font-geist-sans)",
+                fontSize: "0.76rem",
+                color: "var(--muted)",
+                margin: "4px 0 0",
+                textAlign: "center",
+              }}
+            >
+              <Link
+                href="/ecommerce-website-development-pune"
+                style={{ color: "var(--accent)", textDecoration: "underline", textUnderlineOffset: "2px" }}
+              >
+                Ecommerce website development in Pune
+              </Link>
+            </p>
+          )}
         </div>
       ) : plan.id.startsWith("app") || ["MVP", "Standard App", "Advanced"].includes(plan.name) ? (
         <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>

@@ -561,6 +561,25 @@ export default function PuneWebDevPage() {
               </Link>
               .
             </div>
+
+            <div
+              style={{
+                textAlign: "center",
+                fontFamily: "var(--font-geist-sans)",
+                fontSize: "0.95rem",
+                color: "var(--muted)",
+                marginTop: "12px",
+              }}
+            >
+              Need an online store? See our{" "}
+              <Link
+                href="/ecommerce-website-development-pune"
+                style={{ color: "var(--accent)", textDecoration: "underline", textUnderlineOffset: "3px", fontWeight: 600 }}
+              >
+                ecommerce website development in Pune
+              </Link>
+              .
+            </div>
           </div>
         </section>
 
