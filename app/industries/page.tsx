@@ -340,6 +340,46 @@ export default function IndustriesPage() {
                   </>
                 )}
 
+                {/* For Gyms & Fitness: Athletic Barbell & Strength Octagon Flourish */}
+                {industry.id === "gyms-fitness" && (
+                  <>
+                    <div
+                      aria-hidden="true"
+                      style={{
+                        position: "absolute",
+                        top: "-10px",
+                        right: "-10px",
+                        width: "140px",
+                        height: "140px",
+                        pointerEvents: "none",
+                        zIndex: 0,
+                        opacity: 0.22,
+                      }}
+                    >
+                      <svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" stroke="#F97316">
+                        <circle cx="50" cy="50" r="42" strokeWidth="1" strokeDasharray="4 6" />
+                        <line x1="26" y1="50" x2="74" y2="50" strokeWidth="3" strokeLinecap="round" />
+                        <rect x="22" y="38" width="5" height="24" rx="2" strokeWidth="1.8" fill="#F97316" fillOpacity="0.4" />
+                        <rect x="29" y="42" width="4" height="16" rx="1.5" strokeWidth="1.5" />
+                        <rect x="73" y="38" width="5" height="24" rx="2" strokeWidth="1.8" fill="#F97316" fillOpacity="0.4" />
+                        <rect x="67" y="42" width="4" height="16" rx="1.5" strokeWidth="1.5" />
+                        <circle cx="50" cy="50" r="6" strokeWidth="1.5" strokeDasharray="2 3" />
+                      </svg>
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background:
+                          "radial-gradient(circle at 85% 20%, rgba(249, 115, 22, 0.12) 0%, rgba(239, 68, 68, 0.05) 40%, transparent 60%)",
+                        pointerEvents: "none",
+                        zIndex: 0,
+                      }}
+                    />
+                  </>
+                )}
+
                 <div style={{ position: "relative", zIndex: 1 }}>
                   <div
                     style={{
@@ -356,6 +396,8 @@ export default function IndustriesPage() {
                           ? "#0891B2"
                           : industry.id === "coaching-classes"
                           ? "#3B82F6"
+                          : industry.id === "gyms-fitness"
+                          ? "#EA580C"
                           : "var(--accent)",
                       background:
                         industry.id === "yoga-wellness"
@@ -364,6 +406,8 @@ export default function IndustriesPage() {
                           ? "rgba(8, 145, 178, 0.12)"
                           : industry.id === "coaching-classes"
                           ? "rgba(59, 130, 246, 0.12)"
+                          : industry.id === "gyms-fitness"
+                          ? "rgba(234, 88, 12, 0.12)"
                           : "var(--accent-dim)",
                       padding: "4px 10px",
                       borderRadius: "999px",

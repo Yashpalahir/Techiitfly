@@ -40,6 +40,7 @@ Website cost guide: ${SITE.siteUrl}/website-cost-india
 - Pune Businesses: ${SITE.siteUrl}/website-development-pune
 - Ecommerce Brands: ${SITE.siteUrl}/ecommerce-website-development-pune
 - Dentists & Clinics: ${SITE.siteUrl}/websites-for-dentists
+- Gyms & Fitness Centers: ${SITE.siteUrl}/websites-for-gyms
 - Yoga Schools & Studios: ${SITE.siteUrl}/websites-for-yoga-schools
 - Coaching Classes & Tutors: ${SITE.siteUrl}/websites-for-coaching-classes
 

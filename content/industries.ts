@@ -36,6 +36,15 @@ export const INDUSTRIES: Industry[] = [
     icon: "🦷",
   },
   {
+    id: "gyms-fitness",
+    name: "Gyms & Fitness Centers",
+    href: "/websites-for-gyms",
+    description:
+      "Membership plans, trainer showcases, class schedules, virtual gym tours, and 1-tap WhatsApp free trial bookings.",
+    badge: "🏋️ Gyms & Fitness",
+    icon: "🏋️",
+  },
+  {
     id: "coaching-classes",
     name: "Coaching Classes",
     href: "/websites-for-coaching-classes",
