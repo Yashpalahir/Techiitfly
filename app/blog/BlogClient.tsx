@@ -8,6 +8,11 @@ import { BlogPost } from "@/lib/blog";
 const CATEGORIES = [
   { label: "All", value: "All", href: "/blog" },
   {
+    label: "Website Guides",
+    value: "Website Guides",
+    href: "/blog?category=Website+Guides",
+  },
+  {
     label: "Dentists & Clinics",
     value: "Dentists & Clinics",
     href: "/blog?category=Dentists+%26+Clinics",
@@ -47,6 +52,15 @@ function getPostTag(slug: string) {
       icon: "💰",
     };
   }
+  if (slug.includes("maintenance")) {
+    return {
+      label: "MAINTENANCE PLAYBOOK",
+      color: "#f59e0b",
+      bg: "rgba(245, 158, 11, 0.12)",
+      border: "rgba(245, 158, 11, 0.3)",
+      icon: "🛠️",
+    };
+  }
   if (slug.includes("checklist")) {
     return {
       label: "CLINIC CHECKLIST",
@@ -54,6 +68,15 @@ function getPostTag(slug: string) {
       bg: "var(--accent-dim)",
       border: "rgba(245, 158, 11, 0.3)",
       icon: "📋",
+    };
+  }
+  if (slug.includes("questions") || slug.includes("hiring")) {
+    return {
+      label: "HIRING GUIDE",
+      color: "#38bdf8",
+      bg: "rgba(56, 189, 248, 0.12)",
+      border: "rgba(56, 189, 248, 0.28)",
+      icon: "💡",
     };
   }
   return {

@@ -4,8 +4,9 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import BlogWhatsAppButton from "@/components/ui/BlogWhatsAppButton";
 import { getAllPostSlugs, getPostBySlug, getAllPosts } from "@/lib/blog";
-import { SITE, getWhatsAppUrl } from "@/content/site";
+import { SITE } from "@/content/site";
 import { buildOpenGraph, buildTwitter } from "@/lib/metadata";
 
 export function generateStaticParams() {
@@ -23,22 +24,26 @@ export async function generateMetadata({
     return { title: "Post Not Found" };
   }
 
+  const exactTitle = post.metaTitle || post.title;
+
   return {
-    title: post.title,
+    title: {
+      absolute: exactTitle,
+    },
     description: post.description,
     alternates: {
       canonical: `/blog/${post.slug}`,
     },
     openGraph: buildOpenGraph({
-      title: `${post.title} | techiitfly`,
+      title: exactTitle,
       description: post.description,
       path: `/blog/${post.slug}`,
       image: "/og/home.png",
-      alt: `${post.title} | techiitfly`,
+      alt: `${exactTitle} | techiitfly`,
       type: "article",
     }),
     twitter: buildTwitter({
-      title: `${post.title} | techiitfly`,
+      title: exactTitle,
       description: post.description,
       image: "/og/home.png",
     }),
@@ -73,6 +78,15 @@ function getPostTag(slug: string) {
       icon: "💰",
     };
   }
+  if (slug.includes("maintenance")) {
+    return {
+      label: "MAINTENANCE PLAYBOOK",
+      color: "#f59e0b",
+      bg: "rgba(245, 158, 11, 0.12)",
+      border: "rgba(245, 158, 11, 0.3)",
+      icon: "🛠️",
+    };
+  }
   if (slug.includes("checklist")) {
     return {
       label: "CLINIC PLAYBOOK",
@@ -80,6 +94,15 @@ function getPostTag(slug: string) {
       bg: "var(--accent-dim)",
       border: "rgba(245, 158, 11, 0.3)",
       icon: "📋",
+    };
+  }
+  if (slug.includes("questions") || slug.includes("hiring")) {
+    return {
+      label: "HIRING GUIDE",
+      color: "#38bdf8",
+      bg: "rgba(56, 189, 248, 0.12)",
+      border: "rgba(56, 189, 248, 0.28)",
+      icon: "💡",
     };
   }
   return {
@@ -118,6 +141,7 @@ export default async function BlogPostPage({
     author: {
       "@type": "ProfessionalService",
       "@id": "https://www.techiitfly.com/#organization",
+      name: "techiitfly",
     },
     publisher: {
       "@type": "ProfessionalService",
@@ -128,6 +152,22 @@ export default async function BlogPostPage({
       "@id": `${SITE.siteUrl}/blog/${post.slug}`,
     },
   };
+
+  const faqJsonLd =
+    post.faqs && post.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: post.faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: f.a,
+            },
+          })),
+        }
+      : null;
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -164,6 +204,12 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <Header />
       <main style={{ minHeight: "100vh", background: "var(--bg)", paddingTop: "80px", position: "relative" }}>
         {/* Subtle Ambient Radial Glow */}
@@ -327,7 +373,7 @@ export default async function BlogPostPage({
                   color: "var(--text)",
                 }}
               >
-                By the techiitfly team
+                techiitfly
               </span>
               <div
                 style={{
@@ -340,13 +386,11 @@ export default async function BlogPostPage({
                   color: "var(--muted)",
                 }}
               >
-                <time dateTime={post.date}>Published: {formatDate(post.date)}</time>
-                {post.updated && post.updated !== post.date && (
-                  <>
-                    <span>·</span>
-                    <time dateTime={post.updated}>Updated: {formatDate(post.updated)}</time>
-                  </>
-                )}
+                <time dateTime={post.date}>{`Published ${formatDate(post.date)}`}</time>
+                <span>·</span>
+                <time dateTime={post.updated || post.date}>
+                  {`Last updated: ${post.displayUpdated || "November 2026"}`}
+                </time>
                 <span>·</span>
                 <span>⏱️ {readTime} min read</span>
               </div>
@@ -437,18 +481,43 @@ export default async function BlogPostPage({
                     {...props}
                   />
                 ),
-                p: ({ node: _node, ...props }) => (
-                  <p
-                    style={{
-                      fontFamily: "var(--font-geist-sans)",
-                      fontSize: "1.06rem",
-                      lineHeight: 1.82,
-                      color: "var(--text)",
-                      marginBottom: "22px",
-                    }}
-                    {...props}
-                  />
-                ),
+                p: ({ node: _node, children, ...props }) => {
+                  const rawText = Array.isArray(children)
+                    ? children
+                        .map((c) => (typeof c === "string" ? c : ""))
+                        .join("")
+                    : typeof children === "string"
+                    ? children
+                    : "";
+
+                  const match = rawText.trim().match(/^\[Button:\s*(.+?)\]$/);
+                  if (match) {
+                    const btnText = match[1];
+                    return (
+                      <div style={{ margin: "28px 0" }}>
+                        <BlogWhatsAppButton
+                          text={btnText}
+                          location={`blog_${post.slug}`}
+                        />
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <p
+                      style={{
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "1.06rem",
+                        lineHeight: 1.82,
+                        color: "var(--text)",
+                        marginBottom: "22px",
+                      }}
+                      {...props}
+                    >
+                      {children}
+                    </p>
+                  );
+                },
                 ul: ({ node: _node, ...props }) => (
                   <ul
                     style={{
@@ -527,11 +596,13 @@ export default async function BlogPostPage({
                       border: "1px solid var(--border)",
                       background: "var(--surface)",
                       boxShadow: "0 8px 30px rgba(0,0,0,0.14)",
+                      WebkitOverflowScrolling: "touch",
                     }}
                   >
                     <table
                       style={{
                         width: "100%",
+                        minWidth: "480px",
                         borderCollapse: "collapse",
                         fontFamily: "var(--font-geist-sans)",
                         fontSize: "0.96rem",
@@ -760,7 +831,7 @@ export default async function BlogPostPage({
                 margin: "10px 0 12px",
               }}
             >
-              Ready to build or upgrade your clinic website?
+              Ready to build or upgrade your website?
             </h3>
             <p
               style={{
@@ -774,36 +845,18 @@ export default async function BlogPostPage({
             >
               We build fast, mobile-friendly websites with guaranteed 7-day delivery. Get in touch for a fixed-price quote and honest advice.
             </p>
-            <div style={{ display: "flex", justifyContent: "center", gap: "14px", flexWrap: "wrap" }}>
-              <a
-                href={getWhatsAppUrl(`Hi techiitfly, I read your article "${post.title}" and would like to discuss a website.`)}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  padding: "13px 26px",
-                  borderRadius: "8px",
-                  background: "var(--accent)",
-                  color: "var(--primary-btn-text)",
-                  fontFamily: "var(--font-geist-sans)",
-                  fontSize: "0.96rem",
-                  fontWeight: 600,
-                  textDecoration: "none",
-                  boxShadow: "0 4px 16px rgba(245,158,11,0.25)",
-                }}
-              >
-                <span>WhatsApp us</span>
-                <span>↗</span>
-              </a>
+            <div style={{ display: "flex", justifyContent: "center", gap: "14px", flexWrap: "wrap", alignItems: "center" }}>
+              <BlogWhatsAppButton
+                text="WhatsApp us"
+                location={`blog_bottom_cta_${post.slug}`}
+              />
               <Link
                 href="/contact"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
-                  padding: "13px 24px",
+                  padding: "16px 24px",
                   borderRadius: "8px",
                   background: "transparent",
                   color: "var(--text)",

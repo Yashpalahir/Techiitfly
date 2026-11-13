@@ -2,14 +2,22 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
+export interface FAQItem {
+  q: string;
+  a: string;
+}
+
 export interface BlogPost {
   title: string;
+  metaTitle?: string;
   description: string;
   date: string;
   updated: string;
+  displayUpdated?: string;
   slug: string;
   content: string;
   category?: string;
+  faqs?: FAQItem[];
 }
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
@@ -32,12 +40,15 @@ export function getAllPosts(): BlogPost[] {
 
     posts.push({
       title: data.title || "",
+      metaTitle: data.metaTitle || undefined,
       description: data.description || "",
       date: data.date || "",
       updated: data.updated || data.date || "",
+      displayUpdated: data.displayUpdated || undefined,
       slug,
       content,
       category: data.category || undefined,
+      faqs: Array.isArray(data.faqs) ? data.faqs : undefined,
     });
   }
 
@@ -56,12 +67,15 @@ export function getPostBySlug(slug: string): BlogPost | null {
 
   return {
     title: data.title || "",
+    metaTitle: data.metaTitle || undefined,
     description: data.description || "",
     date: data.date || "",
     updated: data.updated || data.date || "",
+    displayUpdated: data.displayUpdated || undefined,
     slug: data.slug || slug,
     content,
     category: data.category || undefined,
+    faqs: Array.isArray(data.faqs) ? data.faqs : undefined,
   };
 }
 
